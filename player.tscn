@@ -18,10 +18,11 @@ animations = [{
 size = Vector2(80, 80)
 
 [node name="Player" type="Area2D"]
+position = Vector2(357, 240)
 script = ExtResource("1_y1ig1")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Body" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1nfi5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
