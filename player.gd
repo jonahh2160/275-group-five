@@ -4,13 +4,13 @@ signal hit
 @export var max_vel = 400
 @export var accel = 1500
 @export var decel = 600
+@export var health = 3
 
 var velocity = Vector2()
 var dir = Vector2.ZERO
 var state = 0
 var i_frames = 0
 var screen_size
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,3 +47,18 @@ func movement(delta):
 
 func dodge(delta):
 	pass
+
+func _on_body_entered(body):
+	if i_frames == 0:
+		health -= 1
+		i_frames += 150
+	if health == 0:
+		hide() # Player disappears after being hit.
+		hit.emit()
+		# Must be deferred as we can't change physics properties on a physics callback.
+		$CollisionShape2D.set_deferred("disabled", true) # Don't want player to get hit twice
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
