@@ -16,8 +16,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m41nl"]
 size = Vector2(80, 83)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="BadDudes" type="RigidBody2D"]
 position = Vector2(731, 401)
+gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qyhsn")

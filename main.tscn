@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://427suyu0d6x3"]
+[gd_scene load_steps=4 format=3 uid="uid://bcc1cdbxt8dyo"]
+
+[ext_resource type="PackedScene" uid="uid://cyxssjyp70hnl" path="res://player.tscn" id="2_ln7bw"]
+[ext_resource type="Script" path="res://baddudes.gd" id="3_my02e"]
+[ext_resource type="PackedScene" uid="uid://4tdd2bhweeym" path="res://baddudes.tscn" id="3_v8rl4"]
 
 [node name="main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("2_ln7bw")]
+position = Vector2(276, 357)
+
+[node name="BadDudes" parent="." instance=ExtResource("3_v8rl4")]
+position = Vector2(1059, 347)
+script = ExtResource("3_my02e")
