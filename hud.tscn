@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://djddohi1tykxv"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.437
+anchor_right = 0.563
+anchor_bottom = 0.081
+offset_left = -0.540039
+offset_right = 0.539917
+offset_bottom = 0.519997
+grow_horizontal = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 64
+text = "Score: 0"
+
+[node name="HealthLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.177
+anchor_bottom = 0.081
+offset_right = 0.160004
+offset_bottom = 0.519997
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Health: 3/3"
