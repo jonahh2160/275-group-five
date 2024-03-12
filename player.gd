@@ -34,6 +34,9 @@ func _process(delta):
 		1:
 			dodge(delta)
 	
+	if i_frames > 0:
+		i_frames = i_frames - 1
+	
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 
@@ -56,7 +59,7 @@ func dodge(delta):
 	
 	match phase:
 		0:
-			dash_angle = dir * 5
+			dash_angle = dir * 2
 			dashing = false
 			timer = 30
 			phase = 1
@@ -86,6 +89,7 @@ func dodge(delta):
 func _on_body_entered(body):
 	if i_frames == 0:
 		health -= 1
+		hit.emit()
 		i_frames += 150
 	if health == 0:
 		hide() # Player disappears after being hit.
