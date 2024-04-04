@@ -1,5 +1,6 @@
 extends Node
 
+@export var bombEnemy_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,8 +9,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var bombE = bombEnemy_scene.instantiate()
+	if (Input.is_action_pressed("spawn")):
+		add_child(bombE)
 
 
 func _on_player_hit():
-	$HUD.update_health($Player.health)
+	$HUD.update_health(str($Player.health))
