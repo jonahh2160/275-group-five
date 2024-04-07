@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7s2aqnlep8tr"]
+[gd_scene load_steps=5 format=3 uid="uid://oq4m5br2ohoh"]
 
-[ext_resource type="Script" path="res://scenes/bombclock.gd" id="1_8uu65"]
-[ext_resource type="Texture2D" uid="uid://cbumcp5wyae8u" path="res://art/placeholderBlock.png" id="1_wxe4x"]
+[ext_resource type="Script" path="res://scripts/wheelcharger.gd" id="1_ufhco"]
+[ext_resource type="Texture2D" uid="uid://cbumcp5wyae8u" path="res://art/placeholderBlock.png" id="2_qapev"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_wxe4x")
+"texture": ExtResource("2_qapev")
 }],
 "loop": true,
 "name": &"default",
@@ -17,13 +17,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8c2lt"]
 size = Vector2(80, 80)
 
-[node name="Bombclock" type="Area2D"]
+[node name="Wheelcharger" type="Area2D"]
 monitoring = false
-script = ExtResource("1_8uu65")
+script = ExtResource("1_ufhco")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8c2lt")
-debug_color = Color(1, 0.2, 0.278431, 0.670588)
+debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)

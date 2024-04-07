@@ -1,6 +1,7 @@
 extends Node
 
 @export var bombEnemy_scene: PackedScene
+@export var wheelEnemy_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
