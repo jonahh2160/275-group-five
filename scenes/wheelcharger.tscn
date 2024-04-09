@@ -17,9 +17,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8c2lt"]
 size = Vector2(80, 80)
 
-[node name="Wheelcharger" type="Area2D"]
-monitoring = false
+[node name="Wheelcharger" type="CharacterBody2D"]
 script = ExtResource("1_ufhco")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")

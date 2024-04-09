@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7s2aqnlep8tr"]
 
-[ext_resource type="Script" path="res://scenes/bombclock.gd" id="1_8uu65"]
+[ext_resource type="Script" path="res://scripts/bombclock.gd" id="1_ahetv"]
 [ext_resource type="Texture2D" uid="uid://cbumcp5wyae8u" path="res://art/placeholderBlock.png" id="1_wxe4x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
@@ -17,9 +17,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8c2lt"]
 size = Vector2(80, 80)
 
-[node name="Bombclock" type="Area2D"]
-monitoring = false
-script = ExtResource("1_8uu65")
+[node name="Bombclock" type="CharacterBody2D"]
+script = ExtResource("1_ahetv")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
