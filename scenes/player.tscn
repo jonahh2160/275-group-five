@@ -1,31 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyxssjyp70hnl"]
+[gd_scene load_steps=7 format=3 uid="uid://cyxssjyp70hnl"]
 
-[ext_resource type="Texture2D" uid="uid://cbumcp5wyae8u" path="res://art/placeholderBlock.png" id="1_rcbl0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_y1ig1"]
+[ext_resource type="Texture2D" uid="uid://yfenfl431csc" path="res://art/Goober/Goober(2).png" id="2_aa370"]
+[ext_resource type="Texture2D" uid="uid://bgwisi5f2eay0" path="res://art/Goober/Goober(1).png" id="3_s2c5b"]
+[ext_resource type="Texture2D" uid="uid://d4huf7c5iha6y" path="res://art/Goober/Goober 9.png" id="4_6voj2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nfi5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_rcbl0")
+"texture": ExtResource("2_aa370")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s2c5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aa370")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6voj2")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mow1n"]
-size = Vector2(80, 80)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vdpl"]
+radius = 31.0
+height = 112.0
 
 [node name="Player" type="Area2D"]
 position = Vector2(357, 240)
 script = ExtResource("1_y1ig1")
 metadata/_edit_group_ = true
 
-[node name="Body" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1nfi5")
+frame_progress = 0.0787428
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_mow1n")
+shape = SubResource("CapsuleShape2D_5vdpl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
