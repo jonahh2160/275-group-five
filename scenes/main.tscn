@@ -15,6 +15,9 @@ wheelEnemy_scene = ExtResource("3_q4mlm")
 
 [node name="Player" parent="." instance=ExtResource("2_ch8pv")]
 position = Vector2(936, 544)
+speed = 600
+accel = 10
+health = 6
 
 [node name="HUD" parent="." instance=ExtResource("5_5e0co")]
 script = ExtResource("6_2dg44")
@@ -32,5 +35,3 @@ position = Vector2(160, 992)
 
 [node name="MobSpawner4" parent="MobSpawners" instance=ExtResource("5_rdbx7")]
 position = Vector2(1528, 1000)
-
-[connection signal="hit" from="Player" to="." method="_on_player_hit"]

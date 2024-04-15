@@ -18,6 +18,8 @@ animations = [{
 size = Vector2(80, 80)
 
 [node name="Wheelcharger" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 6
 script = ExtResource("1_ufhco")
 metadata/_edit_group_ = true
 
