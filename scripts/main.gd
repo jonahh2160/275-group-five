@@ -7,7 +7,6 @@ var mobSpawnerList
 var enemyList
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$HUD.update_health(str($Player.health))
 	mobSpawnerList = $MobSpawners.get_children()
 	enemyList = [bombEnemy_scene, wheelEnemy_scene]
 	spawn_enemy()
