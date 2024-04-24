@@ -11,4 +11,4 @@ func _process(delta):
 	pass
 
 func update_health(health):
-	$HealthLabel.text = "Health: " + health + "/3"
+	$HealthLabel.text = "Health: " + health + "/6"
