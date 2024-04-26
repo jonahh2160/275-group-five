@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxcoe116iwmmc"]
+[gd_scene load_steps=3 format=3 uid="uid://cxcoe116iwmmc"]
 
+[ext_resource type="Texture2D" uid="uid://c1x6ji7lnvg6n" path="res://art/Logo.png" id="1_1sj28"]
 [ext_resource type="Script" path="res://scripts/PlayButton.gd" id="1_5r7fw"]
 
 [node name="Title" type="Control"]
@@ -17,7 +18,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(2.10572e-08, 0.121469, 0.113332, 1)
+color = Color(0.0117761, 0.211724, 0.935332, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 551.0
+offset_top = -170.0
+offset_right = 2599.0
+offset_bottom = 1878.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_1sj28")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -31,15 +41,13 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "HANDS OFF!"
 
-[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Play"
 script = ExtResource("1_5r7fw")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="CenterContainer/VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/PlayButton" to="CenterContainer/VBoxContainer/MarginContainer/PlayButton" method="_on_pressed"]

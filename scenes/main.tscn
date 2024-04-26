@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcc1cdbxt8dyo"]
+[gd_scene load_steps=9 format=3 uid="uid://bcc1cdbxt8dyo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nlcff"]
 [ext_resource type="PackedScene" uid="uid://cyxssjyp70hnl" path="res://scenes/player.tscn" id="2_ch8pv"]
@@ -8,13 +8,23 @@
 [ext_resource type="PackedScene" uid="uid://c7s2aqnlep8tr" path="res://scenes/bombclock.tscn" id="5_ro1tn"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="6_2dg44"]
 
+[sub_resource type="TileSet" id="TileSet_jo2ye"]
+
 [node name="main" type="Node"]
 script = ExtResource("1_nlcff")
 bombEnemy_scene = ExtResource("5_ro1tn")
 wheelEnemy_scene = ExtResource("3_q4mlm")
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_jo2ye")
+format = 2
+
 [node name="Player" parent="." instance=ExtResource("2_ch8pv")]
-position = Vector2(936, 544)
+position = Vector2(944, 544)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource("5_5e0co")]
 script = ExtResource("6_2dg44")
