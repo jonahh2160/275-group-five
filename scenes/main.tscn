@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcc1cdbxt8dyo"]
+[gd_scene load_steps=10 format=3 uid="uid://bcc1cdbxt8dyo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nlcff"]
 [ext_resource type="PackedScene" uid="uid://cyxssjyp70hnl" path="res://scenes/player.tscn" id="2_ch8pv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dh5wwerriac4h" path="res://scenes/mob_spawner.tscn" id="5_rdbx7"]
 [ext_resource type="PackedScene" uid="uid://c7s2aqnlep8tr" path="res://scenes/bombclock.tscn" id="5_ro1tn"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="6_2dg44"]
+[ext_resource type="AudioStream" uid="uid://deg045o7ytbvr" path="res://snd/thebeatisgood.ogg" id="8_m3xgd"]
 
 [sub_resource type="TileSet" id="TileSet_jo2ye"]
 
@@ -42,5 +43,9 @@ position = Vector2(160, 992)
 
 [node name="MobSpawner4" parent="MobSpawners" instance=ExtResource("5_rdbx7")]
 position = Vector2(1528, 1000)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_m3xgd")
+autoplay = true
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
