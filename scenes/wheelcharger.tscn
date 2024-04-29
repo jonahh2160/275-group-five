@@ -21,7 +21,6 @@ size = Vector2(80, 80)
 collision_layer = 2
 collision_mask = 6
 script = ExtResource("1_ufhco")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
@@ -29,3 +28,9 @@ sprite_frames = SubResource("SpriteFrames_chmga")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8c2lt")
 debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)
+
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]

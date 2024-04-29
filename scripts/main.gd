@@ -8,7 +8,7 @@ var enemyList
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mobSpawnerList = $MobSpawners.get_children()
-	enemyList = [bombEnemy_scene]
+	enemyList = [wheelEnemy_scene]
 	spawn_enemy()
 
 
