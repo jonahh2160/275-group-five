@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyxssjyp70hnl"]
+[gd_scene load_steps=9 format=3 uid="uid://cyxssjyp70hnl"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kb134"]
 [ext_resource type="Texture2D" uid="uid://yfenfl431csc" path="res://art/Goober/Goober(2).png" id="2_aa370"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d4huf7c5iha6y" path="res://art/Goober/Goober 9.png" id="4_6voj2"]
 [ext_resource type="Texture2D" uid="uid://buxb5pme2tkph" path="res://art/Goober/Arm_Ball.png" id="5_lgb7x"]
 [ext_resource type="PackedScene" uid="uid://by7gkp88vxdwn" path="res://scenes/hand_left.tscn" id="5_v2x68"]
-[ext_resource type="Texture2D" uid="uid://toq5invx6c0e" path="res://art/Hand_L.png" id="7_tgj2b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nfi5"]
 animations = [{
@@ -39,8 +38,7 @@ script = ExtResource("1_kb134")
 metadata/_edit_group_ = true
 
 [node name="HandLeft" parent="." instance=ExtResource("5_v2x68")]
-position = Vector2(65, 27)
-scale = Vector2(0.8, 0.8)
+position = Vector2(70, 27)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1nfi5")
@@ -58,15 +56,5 @@ shape = SubResource("CapsuleShape2D_5vdpl")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(26, 4)
 texture = ExtResource("5_lgb7x")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-26, 4)
-texture = ExtResource("5_lgb7x")
-
-[node name="HandRight" type="Sprite2D" parent="."]
-position = Vector2(-65, 27)
-rotation = -0.523599
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("7_tgj2b")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

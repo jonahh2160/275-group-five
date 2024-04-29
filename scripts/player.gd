@@ -6,6 +6,8 @@ signal hit
 @export var health = 6
 
 var dir = Vector2.ZERO
+var dir_aim = Vector2.ZERO
+var hand_left
 
 var state = 0
 var i_frames = 0
@@ -14,11 +16,13 @@ var timer = 0
 var screen_size
 var dash_angle
 var dashing
+var dash_cooldown = 0
 var timer_on = false
 
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	hand_left = $HandLeft
 
 func start(pos):
 	position = pos
@@ -36,17 +40,33 @@ func _physics_process(delta):
 	
 	# I-Frame reduction + flash
 	if i_frames > 0:
-		i_frames = i_frames - 1
+		i_frames -= 1
 		if i_frames <= 0:
 			set_modulate(Color(1, 1, 1))
+	# Dash Cooldown
+	if dash_cooldown > 0:
+		dash_cooldown -= 1
 
 	move_and_slide()
 
 func free_state(delta):
 	# Dodge
-	if (Input.is_action_pressed("dodge") and dir):
+	if (Input.is_action_pressed("dodge") and dir and dash_cooldown == 0):
 		state = 1
-		
+
+	if (Input.is_action_pressed("grab use") and not hand_left.grabbing):
+		# If there's nothing in the hand, go grab something
+		if hand_left.current_held == 0:
+			get_dir_aim()
+			if dir_aim != Vector2.ZERO:
+				hand_left.grab(dir_aim)
+		# Otherwise, use the item in the hand
+		elif hand_left.current_held != 0:
+			pass
+	
+	if (Input.is_action_pressed("throw")):
+		pass
+
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
 
@@ -78,11 +98,17 @@ func dodge(delta):
 			# Reset variables and return to free state on timeout
 			timer_on = false
 			dashing = false
+			dash_cooldown = 30
 			state = 0
 
 func get_dir():
 	dir.x = Input.get_axis("move_left", "move_right")
 	dir.y = Input.get_axis("move_up", "move_down")
+	return dir.normalized()
+
+func get_dir_aim():
+	dir_aim.x = Input.get_axis("aim_left", "aim_right")
+	dir_aim.y = Input.get_axis("aim_up", "aim_down")
 	return dir.normalized()
 
 func _on_area_2d_body_entered(body):

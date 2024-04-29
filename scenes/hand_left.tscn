@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://by7gkp88vxdwn"]
+
+[ext_resource type="Script" path="res://scenes/hand_left.gd" id="1_hlorr"]
+[ext_resource type="Texture2D" uid="uid://bxd6s3oa60pvn" path="res://art/Hand_R.png" id="1_yucs8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aal1y"]
+radius = 22.0
+height = 62.0
+
+[node name="HandLeft" type="Area2D"]
+rotation = 0.523599
+collision_mask = 2
+script = ExtResource("1_hlorr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yucs8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_aal1y")
+
+[node name="GrabTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="GrabTimer" to="." method="_on_grab_timer_timeout"]
