@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7s2aqnlep8tr"]
+[gd_scene load_steps=6 format=3 uid="uid://c7s2aqnlep8tr"]
 
 [ext_resource type="Script" path="res://scripts/bombclock.gd" id="1_ahetv"]
 [ext_resource type="Texture2D" uid="uid://cbumcp5wyae8u" path="res://art/placeholderBlock.png" id="1_wxe4x"]
+[ext_resource type="PackedScene" uid="uid://c66kxuj0flg1y" path="res://scenes/explosion.tscn" id="2_1n0so"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
 animations = [{
@@ -21,6 +22,7 @@ size = Vector2(80, 80)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ahetv")
+explosion = ExtResource("2_1n0so")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
