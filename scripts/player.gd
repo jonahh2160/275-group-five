@@ -3,7 +3,7 @@ signal hit
 
 @export var speed = 600
 @export var accel = 10
-@export var health = 6
+@export var health = 5
 
 var dir = Vector2.ZERO
 var dir_aim = Vector2.ZERO

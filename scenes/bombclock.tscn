@@ -169,9 +169,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
-animation = &"1 Walk"
-frame_progress = 0.633157
+animation = &"Smile Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_jpa04")
 debug_color = Color(1, 0.2, 0.278431, 0.670588)
