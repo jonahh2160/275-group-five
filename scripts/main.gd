@@ -2,6 +2,7 @@ extends Node
 
 @export var bombEnemy_scene: PackedScene
 @export var wheelEnemy_scene: PackedScene
+@export var rumbee_scene: PackedScene
 
 var mobSpawnerList
 var enemyList
@@ -11,7 +12,7 @@ var enemies_to_spawn
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mobSpawnerList = $MobSpawners.get_children()
-	enemyList = [bombEnemy_scene, wheelEnemy_scene]
+	enemyList = [bombEnemy_scene, wheelEnemy_scene, rumbee_scene]
 	start_next_wave()
 
 func spawn_enemy():

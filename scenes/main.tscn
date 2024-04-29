@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcc1cdbxt8dyo"]
+[gd_scene load_steps=11 format=3 uid="uid://bcc1cdbxt8dyo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nlcff"]
 [ext_resource type="PackedScene" uid="uid://cyxssjyp70hnl" path="res://scenes/player.tscn" id="2_ch8pv"]
 [ext_resource type="PackedScene" uid="uid://oq4m5br2ohoh" path="res://scenes/wheelcharger.tscn" id="3_q4mlm"]
+[ext_resource type="PackedScene" uid="uid://c8gjmceyf3ps6" path="res://scenes/rumbee.tscn" id="4_iyo8l"]
 [ext_resource type="PackedScene" uid="uid://djddohi1tykxv" path="res://scenes/hud.tscn" id="5_5e0co"]
 [ext_resource type="PackedScene" uid="uid://dh5wwerriac4h" path="res://scenes/mob_spawner.tscn" id="5_rdbx7"]
 [ext_resource type="PackedScene" uid="uid://c7s2aqnlep8tr" path="res://scenes/bombclock.tscn" id="5_ro1tn"]
@@ -15,6 +16,7 @@
 script = ExtResource("1_nlcff")
 bombEnemy_scene = ExtResource("5_ro1tn")
 wheelEnemy_scene = ExtResource("3_q4mlm")
+rumbee_scene = ExtResource("4_iyo8l")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jo2ye")

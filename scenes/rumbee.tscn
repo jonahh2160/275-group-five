@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8gjmceyf3ps6"]
+
+[ext_resource type="Script" path="res://scripts/Rumbee.gd" id="1_us8pf"]
+[ext_resource type="Texture2D" uid="uid://cbumcp5wyae8u" path="res://art/placeholderBlock.png" id="2_a5sx2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a5sx2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c2lt"]
+size = Vector2(80, 80)
+
+[node name="Rumbee" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("1_us8pf")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_chmga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8c2lt")
+debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)

@@ -17,6 +17,7 @@ func _process(delta):
 		var player_distance = Vector2(position-player.position).length()
 		if ((player_distance >= 0 and player_distance < required_distance_for_boom) or (player_distance <= 0 and player_distance > (-1 * required_distance_for_boom))):
 			$AnimatedSprite2D.play("Alert Walk")
+			$AnimatedSprite2D.flip_h = false
 			blowing_up = true
 			$Timer.start()
 		else:
@@ -24,6 +25,10 @@ func _process(delta):
 
 
 func normal_move(delta):
+	if (player.position.x <= position.x):
+		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 	$AnimatedSprite2D.play("Smile Walk")
 	velocity = Vector2.ZERO
 	velocity = position.direction_to(player.position) * speed
