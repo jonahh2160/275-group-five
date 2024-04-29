@@ -1,10 +1,13 @@
 extends Area2D
 
 func _ready():
-	$CollisionShape2D.apply_scale()
 	$AnimatedSprite2D.play("boom")
-	$CollisionShape2D.scale = move_toward(0, 1, 0.2)
 	$BoomPlayer.play()
+	$CollisionShape2D.hide()
 
 func _on_boom_player_finished():
 	queue_free()
+
+
+func _on_body_exited(body):
+	body._on_area_2d_body_entered(body)
