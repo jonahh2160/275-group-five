@@ -62,10 +62,17 @@ func free_state(delta):
 				hand_left.grab(dir_aim)
 		# Otherwise, use the item in the hand
 		elif hand_left.current_held != 0:
-			pass
+			match hand_left.current_held:
+				# Bombclock
+				1:
+					pass
+				# Wheelcharger
+				2:
+					pass
 	
 	if (Input.is_action_pressed("throw")):
-		pass
+		# TODO: This needs an animation or something similar
+		hand_left.current_held = 0
 
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
