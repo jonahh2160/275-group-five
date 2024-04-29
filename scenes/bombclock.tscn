@@ -175,3 +175,7 @@ animation = &"Smile Walk"
 visible = false
 shape = SubResource("CircleShape2D_jpa04")
 debug_color = Color(1, 0.2, 0.278431, 0.670588)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

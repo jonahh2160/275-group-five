@@ -135,7 +135,7 @@ animations = [{
 }]
 
 [node name="Explosion" type="Area2D"]
-scale = Vector2(2, 2)
+scale = Vector2(1.8, 1.8)
 collision_layer = 2
 script = ExtResource("1_ttl0j")
 metadata/_edit_group_ = true
