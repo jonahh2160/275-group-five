@@ -13,6 +13,10 @@ var tracked_player_pos
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (player.position.x <= position.x):
+		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 	if (charging_up):
 		if (charged_up):
 			charge(delta)

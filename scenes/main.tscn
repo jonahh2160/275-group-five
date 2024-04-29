@@ -30,6 +30,12 @@ drag_vertical_enabled = true
 [node name="HUD" parent="." instance=ExtResource("5_5e0co")]
 script = ExtResource("6_2dg44")
 
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="CheckForEnemies" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="MobSpawners" type="Node2D" parent="."]
 
 [node name="MobSpawner" parent="MobSpawners" instance=ExtResource("5_rdbx7")]
@@ -49,3 +55,4 @@ stream = ExtResource("8_m3xgd")
 autoplay = true
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="CheckForEnemies" to="." method="_on_check_for_enemies_timeout"]
