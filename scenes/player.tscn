@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d4huf7c5iha6y" path="res://art/Goober/Goober 9.png" id="4_6voj2"]
 [ext_resource type="Texture2D" uid="uid://buxb5pme2tkph" path="res://art/Goober/Arm_Ball.png" id="5_lgb7x"]
 [ext_resource type="PackedScene" uid="uid://by7gkp88vxdwn" path="res://scenes/hand_left.tscn" id="5_v2x68"]
-[ext_resource type="Texture2D" uid="uid://toq5invx6c0e" path="res://art/Hand_L.png" id="7_tgj2b"]
+[ext_resource type="PackedScene" uid="uid://bc676qf1bhtbl" path="res://scenes/hand_right.tscn" id="7_v20c5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nfi5"]
 animations = [{
@@ -42,9 +42,15 @@ metadata/_edit_group_ = true
 position = Vector2(65, 27)
 scale = Vector2(0.8, 0.8)
 
+[node name="HandRight" parent="." instance=ExtResource("7_v20c5")]
+position = Vector2(-65, 27)
+scale = Vector2(0.8, 0.8)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1nfi5")
-frame_progress = 0.0787428
+autoplay = "default"
+frame = 1
+frame_progress = 0.918635
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5vdpl")
@@ -62,12 +68,6 @@ texture = ExtResource("5_lgb7x")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(-26, 4)
 texture = ExtResource("5_lgb7x")
-
-[node name="HandRight" type="Sprite2D" parent="."]
-position = Vector2(-65, 27)
-rotation = -0.523599
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("7_tgj2b")
 
 [connection signal="enemy_grabbed" from="HandLeft" to="." method="_on_hand_left_enemy_grabbed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
