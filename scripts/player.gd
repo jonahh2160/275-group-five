@@ -70,8 +70,11 @@ func free_state(delta):
 				# Wheelcharger
 				2:
 					pass
+				# Rumbee
+				3:
+					pass
 	
-	if (Input.is_action_pressed("throw")):
+	if (Input.is_action_pressed("throw") and not hand_left.grabbing):
 		# TODO: This needs an animation or something similar
 		hand_left.current_held = 0
 
