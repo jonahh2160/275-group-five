@@ -74,7 +74,7 @@ func free_state(delta):
 				3:
 					pass
 	
-	if (Input.is_action_pressed("throw") and not hand_left.grabbing):
+	if Input.is_action_pressed("throw"):
 		hand_left.ungrab()
 
 	# Credit to KobeDev on YouTube
@@ -117,8 +117,9 @@ func get_dir():
 	return dir.normalized()
 
 func get_dir_aim():
-	dir_aim.x = Input.get_axis("aim_left", "aim_right")
-	dir_aim.y = Input.get_axis("aim_up", "aim_down")
+	# Thanks to golddotasksquestions on Reddit
+	dir_aim.x = -Input.get_action_strength("aim_left") + Input.get_action_strength("aim_right") 
+	dir_aim.y = +Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 	return dir.normalized()
 
 func _on_area_2d_body_entered(body):

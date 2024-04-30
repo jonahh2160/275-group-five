@@ -1,5 +1,7 @@
 extends Area2D
 
+var score_value = 0
+
 func _ready():
 	$AnimatedSprite2D.play("boom")
 	$BoomPlayer.play()

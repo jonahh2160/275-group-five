@@ -11,8 +11,9 @@ func grab(dir):
 	$GrabTimer.start()
 
 func ungrab():
-	current_held = 0
-	$AnimatedSprite2D.play("default")
+	if not grabbing:
+		current_held = 0
+		$AnimatedSprite2D.play("default")
 
 func _process(delta):
 	if $GrabTimer.get_time_left() > 0 && current_held == 0:
@@ -20,21 +21,25 @@ func _process(delta):
 	elif (position.x < 64 || position.x > 66) || (position.y < 26 || position.y > 28):
 		position += (Vector2(65, 27) - position).normalized() * 800 * delta
 	else:
-		if grabbing:
+		if grabbing :
 			grabbing = false
-			rotation = 0
+		if rotation_degrees != 30:
+			rotation_degrees = 30
 		
 
 func _on_body_entered(body):
 	if grabbing:
-		match body.name:
-			"Bombclock":
+		match body.score_value:
+			# Bombclock
+			15:
 				current_held = 1
 				$AnimatedSprite2D.play("bombclock")
-			"Wheelcharger":
+			# Wheelcharger
+			20:
 				current_held = 2
 				$AnimatedSprite2D.play("wheelcharger")
-			"Rumbee":
+			# Gumbyrumbee
+			10:
 				current_held = 3
 				match body.color:
 					"red_gumby":
