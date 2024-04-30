@@ -276,8 +276,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Ability" type="Sprite2D" parent="."]
-position = Vector2(1819, 997.5)
-scale = Vector2(1.48718, 1.09574)
+position = Vector2(1789.45, 940.965)
+scale = Vector2(2.2, 2.2)
 texture = ExtResource("31_rn6qy")
 
 [node name="mouse" type="Sprite2D" parent="Ability"]
