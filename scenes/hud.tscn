@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://djddohi1tykxv"]
+[gd_scene load_steps=38 format=3 uid="uid://djddohi1tykxv"]
 
 [ext_resource type="Texture2D" uid="uid://ch7a7yg85p04n" path="res://art/Health Bar/Compressed.png" id="1_s00ac"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_xtuki"]
@@ -30,6 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://b8htj66861etr" path="res://art/Health Bar/Right/Compressed_Health_Bar 1.png" id="24_1ip31"]
 [ext_resource type="Texture2D" uid="uid://tjde81veuxox" path="res://art/Health Bar/Compressed 2.png" id="27_3seqx"]
 [ext_resource type="Texture2D" uid="uid://cqwc2jkv5i2f3" path="res://art/Health Bar/Compressed 3.png" id="28_her8g"]
+[ext_resource type="Texture2D" uid="uid://cei6qdmstg50s" path="res://art/Ability/Ability.png" id="31_rn6qy"]
+[ext_resource type="Texture2D" uid="uid://cm644iund2bvm" path="res://art/Ability/Ability 1.png" id="32_gr6ch"]
+[ext_resource type="Texture2D" uid="uid://dnjlxn37nhpr5" path="res://art/Ability/Ability 2.png" id="33_lkdum"]
+[ext_resource type="Texture2D" uid="uid://dinlyflyjphhd" path="res://art/Ability/Ability(1).png" id="34_ffjft"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7xvv"]
 animations = [{
@@ -270,5 +274,31 @@ autoplay = "Normal Right"
 [node name="HurtTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Ability" type="Sprite2D" parent="."]
+position = Vector2(1819, 997.5)
+scale = Vector2(1.48718, 1.09574)
+texture = ExtResource("31_rn6qy")
+
+[node name="mouse" type="Sprite2D" parent="Ability"]
+visible = false
+z_index = -1
+position = Vector2(-4.08292e-05, -2.7895e-05)
+scale = Vector2(1.02963, 1.01529)
+texture = ExtResource("32_gr6ch")
+
+[node name="bomb" type="Sprite2D" parent="Ability"]
+visible = false
+z_index = -1
+position = Vector2(0.672373, 0.456287)
+scale = Vector2(1.02963, 1.0267)
+texture = ExtResource("33_lkdum")
+
+[node name="stone" type="Sprite2D" parent="Ability"]
+visible = false
+z_index = -1
+position = Vector2(8.72016e-05, -7.15256e-06)
+scale = Vector2(1.02963, 1.01529)
+texture = ExtResource("34_ffjft")
 
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]

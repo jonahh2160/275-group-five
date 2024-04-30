@@ -1,5 +1,7 @@
 extends Area2D
 
+signal enemy_grabbed
+
 @export var current_held = 0
 var grabbing = false
 var grab_dir = Vector2.ZERO
@@ -51,3 +53,4 @@ func _on_body_entered(body):
 					"green_gumby":
 						$AnimatedSprite2D.play("gumby_green")
 		body.queue_free()
+		enemy_grabbed.emit()

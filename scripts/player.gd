@@ -1,5 +1,7 @@
 extends CharacterBody2D
 signal hit
+signal enemy_held
+signal discarded
 
 @export var speed = 600
 @export var accel = 10
@@ -76,6 +78,7 @@ func free_state(delta):
 	
 	if Input.is_action_pressed("throw"):
 		hand_left.ungrab()
+		discarded.emit()
 
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
@@ -138,3 +141,7 @@ func _on_area_2d_body_entered(body):
 
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+
+func _on_hand_left_enemy_grabbed():
+	enemy_held.emit()
