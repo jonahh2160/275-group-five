@@ -47,7 +47,8 @@ func _physics_process(delta):
 	if dash_cooldown > 0:
 		dash_cooldown -= 1
 
-	move_and_slide()
+	if health > 0:
+		move_and_slide()
 
 func free_state(delta):
 	# Dodge
@@ -129,7 +130,7 @@ func _on_area_2d_body_entered(body):
 		hit.emit()
 		$CollisionShape2D.set_deferred("disabled", true) # Don't want player to get hit twiceace with function body.
 		# Must be deferred as we can't change physics properties on a physics callback.
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(2.5).timeout
 		call_deferred("game_over")
 
 func game_over():

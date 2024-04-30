@@ -24,6 +24,7 @@ func _on_body_entered(body):
 				current_held = 1
 			"Wheelcharger":
 				current_held = 2
+		body.queue_free()
 
 func _on_grab_timer_timeout():
 	grabbing = false
