@@ -75,8 +75,7 @@ func free_state(delta):
 					pass
 	
 	if (Input.is_action_pressed("throw") and not hand_left.grabbing):
-		# TODO: This needs an animation or something similar
-		hand_left.current_held = 0
+		hand_left.ungrab()
 
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
