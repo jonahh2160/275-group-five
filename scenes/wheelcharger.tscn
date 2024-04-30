@@ -1,11 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://oq4m5br2ohoh"]
+[gd_scene load_steps=12 format=3 uid="uid://oq4m5br2ohoh"]
 
 [ext_resource type="Script" path="res://scripts/wheelcharger.gd" id="1_ufhco"]
+[ext_resource type="Texture2D" uid="uid://cbbm37q25u8ka" path="res://art/mouse/Mouse 3.png" id="2_1npao"]
 [ext_resource type="Texture2D" uid="uid://xj6i46vjq1pv" path="res://art/mouse/Mouse 5.png" id="2_vx74p"]
+[ext_resource type="Texture2D" uid="uid://ciyhuft0eq4lj" path="res://art/mouse/Mouse.png" id="3_0uf4h"]
 [ext_resource type="Texture2D" uid="uid://db4oparsfe340" path="res://art/mouse/Mouse 7.png" id="3_8r7ev"]
+[ext_resource type="Texture2D" uid="uid://c2acwa6wuk8hw" path="res://art/mouse/Mouse 4.png" id="4_8dasy"]
+[ext_resource type="Texture2D" uid="uid://k4pwq7vtiak7" path="res://art/mouse/Mouse 6.png" id="5_abd1m"]
+[ext_resource type="Texture2D" uid="uid://bh3jg7q4u466j" path="res://art/mouse/Mouse 2.png" id="8_rf06x"]
+[ext_resource type="Texture2D" uid="uid://dt6223uplstt" path="res://art/mouse/Mouse 1.png" id="9_x6eql"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1npao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0uf4h")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8dasy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_abd1m")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_vx74p")
@@ -14,14 +42,26 @@ animations = [{
 "texture": ExtResource("3_8r7ev")
 }],
 "loop": true,
-"name": &"new_animation",
-"speed": 5.0
+"name": &"Right",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rf06x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x6eql")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ey1ss"]
 radius = 22.0227
 
 [node name="Wheelcharger" type="CharacterBody2D"]
+texture_filter = 1
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 6
@@ -30,9 +70,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame_progress = 0.888042
+animation = &"Left"
+autoplay = "Right"
+frame_progress = 0.898479
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ey1ss")
