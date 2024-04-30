@@ -35,7 +35,7 @@ func _process(delta):
 func normal_move(delta):
 	velocity = Vector2.ZERO
 	velocity = position.direction_to(player.position) * speed
-	position += velocity * delta
+	move_and_slide()
 
 func charge_up():
 	while (num_blinks > 0):

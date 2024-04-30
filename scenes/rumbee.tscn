@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8gjmceyf3ps6"]
+[gd_scene load_steps=12 format=3 uid="uid://h6uu3qrq3qet"]
 
 [ext_resource type="Script" path="res://scripts/Rumbee.gd" id="1_us8pf"]
 [ext_resource type="Texture2D" uid="uid://l3xij0wakr7x" path="res://art/Gumby/Gumby 4.png" id="2_xawm6"]
@@ -57,8 +57,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c2lt"]
-size = Vector2(80, 80)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ed7oe"]
+radius = 25.0
+height = 66.0
 
 [node name="Rumbee" type="CharacterBody2D"]
 collision_layer = 2
@@ -71,6 +72,6 @@ sprite_frames = SubResource("SpriteFrames_chmga")
 animation = &"red_gumby"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_8c2lt")
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_ed7oe")
 debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)

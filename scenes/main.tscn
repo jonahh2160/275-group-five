@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nlcff"]
 [ext_resource type="PackedScene" uid="uid://cyxssjyp70hnl" path="res://scenes/player.tscn" id="2_ch8pv"]
 [ext_resource type="PackedScene" uid="uid://oq4m5br2ohoh" path="res://scenes/wheelcharger.tscn" id="3_q4mlm"]
-[ext_resource type="PackedScene" path="res://scenes/rumbee.tscn" id="4_iyo8l"]
+[ext_resource type="PackedScene" uid="uid://h6uu3qrq3qet" path="res://scenes/rumbee.tscn" id="4_iyo8l"]
 [ext_resource type="PackedScene" uid="uid://djddohi1tykxv" path="res://scenes/hud.tscn" id="5_5e0co"]
 [ext_resource type="PackedScene" uid="uid://dh5wwerriac4h" path="res://scenes/mob_spawner.tscn" id="5_rdbx7"]
 [ext_resource type="PackedScene" uid="uid://c7s2aqnlep8tr" path="res://scenes/bombclock.tscn" id="5_ro1tn"]

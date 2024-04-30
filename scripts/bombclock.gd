@@ -32,7 +32,7 @@ func normal_move(delta):
 	$AnimatedSprite2D.play("Smile Walk")
 	velocity = Vector2.ZERO
 	velocity = position.direction_to(player.position) * speed
-	position += velocity * delta
+	move_and_slide()
 
 func blow_up():
 	var boom = explosion.instantiate()

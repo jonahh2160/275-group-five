@@ -13,4 +13,4 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = true
 	velocity = Vector2.ZERO
 	velocity = position.direction_to(player.position) * speed
-	position += velocity * delta
+	move_and_slide()
