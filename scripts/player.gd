@@ -10,6 +10,7 @@ signal discarded
 var dir = Vector2.ZERO
 var dir_aim = Vector2.ZERO
 var hand_left
+var hand_right
 
 var state = 0
 var i_frames = 0
@@ -25,6 +26,7 @@ var timer_on = false
 func _ready():
 	screen_size = get_viewport_rect().size
 	hand_left = $HandLeft
+	hand_right = $HandRight
 
 func start(pos):
 	position = pos
@@ -79,6 +81,11 @@ func free_state(delta):
 	if Input.is_action_pressed("throw"):
 		hand_left.ungrab()
 		discarded.emit()
+	
+	if (Input.is_action_pressed("punch") and not hand_right.punching):
+		get_dir_aim()
+		if dir_aim != Vector2.ZERO:
+			hand_right.punch(dir_aim)
 
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
