@@ -7,13 +7,20 @@ var punching = false
 func _process(delta):
 	if $PunchTimer.get_time_left() > 0:
 		position += punch_dir.normalized() * 800 * delta
-	elif (position.x < -64 || position.x > -66) || (position.y < 26 || position.y > 28):
+	elif (position.x > -63 || position.x < -67) || (position.y < 25 || position.y > 29):
 		position += (Vector2(-65, 27) - position).normalized() * 800 * delta
+	else:
+		if punching:
+			punching = false
+			$AnimatedSprite2D.play("default")
+		if rotation_degrees != -30:
+			rotation_degrees = -30
 
 func punch(dir):
 	punch_dir = dir
-	rotation = punch_dir.angle()
+	rotation = punch_dir.angle() + PI
 	punching = true
+	$AnimatedSprite2D.play("punch")
 	$PunchTimer.start()
 
 func _on_body_entered(body):

@@ -36,6 +36,9 @@ height = 112.0
 position = Vector2(357, 240)
 collision_mask = 5
 script = ExtResource("1_kb134")
+speed = null
+accel = null
+health = null
 metadata/_edit_group_ = true
 
 [node name="HandLeft" parent="." instance=ExtResource("5_v2x68")]

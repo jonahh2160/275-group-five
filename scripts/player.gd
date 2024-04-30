@@ -50,6 +50,11 @@ func _physics_process(delta):
 	# Dash Cooldown
 	if dash_cooldown > 0:
 		dash_cooldown -= 1
+	
+	if abs(velocity.x) < 0.05 && abs(velocity.y) < 0.05:
+		$AnimatedSprite2D.stop()
+	else:
+		$AnimatedSprite2D.play()
 
 	if health > 0:
 		move_and_slide()

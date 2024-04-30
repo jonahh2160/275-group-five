@@ -2,7 +2,7 @@ extends Area2D
 
 signal enemy_grabbed
 
-@export var current_held = 0
+var current_held = 0
 var grabbing = false
 var grab_dir = Vector2.ZERO
 
@@ -20,7 +20,7 @@ func ungrab():
 func _process(delta):
 	if $GrabTimer.get_time_left() > 0 && current_held == 0:
 		position += grab_dir.normalized() * 800 * delta
-	elif (position.x < 64 || position.x > 66) || (position.y < 26 || position.y > 28):
+	elif (position.x < 63 || position.x > 67) || (position.y < 25 || position.y > 29):
 		position += (Vector2(65, 27) - position).normalized() * 800 * delta
 	else:
 		if grabbing :
