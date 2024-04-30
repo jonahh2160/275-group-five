@@ -1,17 +1,71 @@
-[gd_scene load_steps=5 format=3 uid="uid://by7gkp88vxdwn"]
+[gd_scene load_steps=11 format=3 uid="uid://by7gkp88vxdwn"]
 
 [ext_resource type="Script" path="res://scripts/hand_left.gd" id="1_hlorr"]
 [ext_resource type="Texture2D" uid="uid://bxd6s3oa60pvn" path="res://art/Hand_R.png" id="1_yucs8"]
+[ext_resource type="Texture2D" uid="uid://dvgvg8bc0fwqa" path="res://art/Hand enemies/Hands.png" id="2_b18e4"]
+[ext_resource type="Texture2D" uid="uid://dtrpdvq86kaow" path="res://art/Hand enemies/Hands 5.png" id="4_jpecd"]
+[ext_resource type="Texture2D" uid="uid://b8voijn5shcjk" path="res://art/Hand enemies/Hands 1.png" id="4_w3pau"]
+[ext_resource type="Texture2D" uid="uid://r7106xynwt2g" path="res://art/Hand enemies/Hands 2.png" id="5_kpiib"]
+[ext_resource type="Texture2D" uid="uid://uuvhofrmxqpe" path="res://art/Hand enemies/Hands 3.png" id="6_mhnch"]
+[ext_resource type="Texture2D" uid="uid://cvsr3gu5kfbls" path="res://art/Hand enemies/Hands 4.png" id="7_eoe0i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mchkt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_b18e4")
+}],
+"loop": false,
+"name": &"bombclock",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_yucs8")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jpecd")
+}],
+"loop": false,
+"name": &"gumby_gray",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kpiib")
+}],
+"loop": false,
+"name": &"gumby_green",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mhnch")
+}],
+"loop": false,
+"name": &"gumby_red",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_eoe0i")
+}],
+"loop": false,
+"name": &"gumby_tan",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w3pau")
+}],
+"loop": false,
+"name": &"wheelcharger",
+"speed": 0.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aal1y"]
