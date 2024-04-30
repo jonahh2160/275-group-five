@@ -15,6 +15,10 @@ func _process(delta):
 		position += grab_dir.normalized() * 800 * delta
 	elif (position.x < 64 || position.x > 66) || (position.y < 26 || position.y > 28):
 		position += (Vector2(65, 27) - position).normalized() * 800 * delta
+	else:
+		if grabbing:
+			grabbing = false
+			rotation = 0
 		
 
 func _on_body_entered(body):
@@ -24,7 +28,6 @@ func _on_body_entered(body):
 				current_held = 1
 			"Wheelcharger":
 				current_held = 2
+			"Rumbee":
+				current_held = 3
 		body.queue_free()
-
-func _on_grab_timer_timeout():
-	grabbing = false

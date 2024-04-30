@@ -1,7 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://by7gkp88vxdwn"]
+[gd_scene load_steps=5 format=3 uid="uid://by7gkp88vxdwn"]
 
 [ext_resource type="Script" path="res://scripts/hand_left.gd" id="1_hlorr"]
 [ext_resource type="Texture2D" uid="uid://bxd6s3oa60pvn" path="res://art/Hand_R.png" id="1_yucs8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mchkt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yucs8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aal1y"]
 radius = 22.0
@@ -13,8 +24,8 @@ collision_mask = 2
 script = ExtResource("1_hlorr")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yucs8")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mchkt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

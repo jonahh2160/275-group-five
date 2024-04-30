@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxcoe116iwmmc"]
+[gd_scene load_steps=5 format=3 uid="uid://cxcoe116iwmmc"]
 
 [ext_resource type="Texture2D" uid="uid://c1x6ji7lnvg6n" path="res://art/Logo.png" id="1_1sj28"]
 [ext_resource type="Script" path="res://scripts/PlayButton.gd" id="1_5r7fw"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_wtlfb"]
+action = &"start"
+
+[sub_resource type="Shortcut" id="Shortcut_1evcf"]
+events = [SubResource("InputEventAction_wtlfb")]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -47,6 +53,7 @@ layout_mode = 2
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
+shortcut = SubResource("Shortcut_1evcf")
 text = "Play"
 script = ExtResource("1_5r7fw")
 
