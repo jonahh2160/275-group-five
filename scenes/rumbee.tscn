@@ -1,90 +1,38 @@
-[gd_scene load_steps=20 format=3 uid="uid://h6uu3qrq3qet"]
+[gd_scene load_steps=12 format=3 uid="uid://h6uu3qrq3qet"]
 
 [ext_resource type="Script" path="res://scripts/Rumbee.gd" id="1_us8pf"]
 [ext_resource type="Texture2D" uid="uid://l3xij0wakr7x" path="res://art/Gumby/Gumby 4.png" id="2_xawm6"]
 [ext_resource type="Texture2D" uid="uid://dsewrjkgh4nqc" path="res://art/Gumby/Gumby 8.png" id="3_k1whl"]
-[ext_resource type="Texture2D" uid="uid://bt1rsmwiudifk" path="res://art/Gumby/Gumby 12.png" id="3_ml437"]
-[ext_resource type="Texture2D" uid="uid://vyv1d1hp3tk3" path="res://art/Gumby/Gumby 9.png" id="4_2purv"]
 [ext_resource type="Texture2D" uid="uid://c7hl8abfw8dq3" path="res://art/Gumby/Gumby 1.png" id="4_s1igq"]
 [ext_resource type="Texture2D" uid="uid://bs4ohuy1wqfjs" path="res://art/Gumby/Gumby 13.png" id="5_h2vow"]
-[ext_resource type="Texture2D" uid="uid://cysvvnq1qm8mr" path="res://art/Gumby/Gumby 10.png" id="6_547a7"]
 [ext_resource type="Texture2D" uid="uid://dml4y00v1k0r3" path="res://art/Gumby/Gumby 2.png" id="6_jbnom"]
-[ext_resource type="Texture2D" uid="uid://bg7oq1na88t0s" path="res://art/Gumby/Gumby 14.png" id="7_oy78q"]
 [ext_resource type="Texture2D" uid="uid://pwjnqtv32mwa" path="res://art/Gumby/Gumby 6.png" id="7_w33x4"]
 [ext_resource type="Texture2D" uid="uid://dy0c4x1fogcu8" path="res://art/Gumby/Gumby 3.png" id="8_7s205"]
-[ext_resource type="Texture2D" uid="uid://dcm7xb6cfgvyd" path="res://art/Gumby/Gumby 11.png" id="8_mn3vg"]
-[ext_resource type="Texture2D" uid="uid://5mosukji7ymg" path="res://art/Gumby/Gumby 15.png" id="9_0ihgg"]
 [ext_resource type="Texture2D" uid="uid://c75vxjdpe41gc" path="res://art/Gumby/Gumby 7.png" id="9_oueh4"]
-[ext_resource type="Texture2D" uid="uid://kcd32eitoacv" path="res://art/Gumby/Gumby.png" id="11_osb1c"]
-[ext_resource type="Texture2D" uid="uid://u6an2myaccb1" path="res://art/Gumby/Gumby 5.png" id="13_e6nsh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_k1whl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_ml437")
-}],
-"loop": true,
-"name": &"Left green_gumby",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_2purv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_h2vow")
-}],
-"loop": true,
-"name": &"Left grey_gumby",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_547a7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_oy78q")
-}],
-"loop": true,
-"name": &"Left orange_gumby",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_mn3vg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_0ihgg")
-}],
-"loop": true,
-"name": &"Left red_gumby",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("2_xawm6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_osb1c")
+"texture": ExtResource("3_k1whl")
 }],
 "loop": true,
-"name": &"Right green_gumby",
-"speed": 3.0
+"name": &"green_gumby",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_s1igq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_e6nsh")
+"texture": ExtResource("5_h2vow")
 }],
 "loop": true,
-"name": &"Right grey_gumby",
-"speed": 3.0
+"name": &"grey_gumby",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -94,8 +42,8 @@ animations = [{
 "texture": ExtResource("7_w33x4")
 }],
 "loop": true,
-"name": &"Right orange_gumby",
-"speed": 3.0
+"name": &"orange_gumby",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -105,8 +53,8 @@ animations = [{
 "texture": ExtResource("9_oueh4")
 }],
 "loop": true,
-"name": &"Right red_gumby",
-"speed": 3.0
+"name": &"red_gumby",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ed7oe"]
@@ -114,7 +62,6 @@ radius = 25.0
 height = 66.0
 
 [node name="Rumbee" type="CharacterBody2D"]
-texture_filter = 1
 collision_layer = 2
 collision_mask = 6
 script = ExtResource("1_us8pf")
@@ -122,11 +69,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
-animation = &"Left green_gumby"
-frame_progress = 0.899687
+animation = &"red_gumby"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_ed7oe")
 debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)

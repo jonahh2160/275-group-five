@@ -1,5 +1,7 @@
 extends CharacterBody2D
 signal hit
+signal enemy_held
+signal discarded
 
 @export var speed = 600
 @export var accel = 10
@@ -74,9 +76,9 @@ func free_state(delta):
 				3:
 					pass
 	
-	if (Input.is_action_pressed("throw") and not hand_left.grabbing):
-		# TODO: This needs an animation or something similar
-		hand_left.current_held = 0
+	if Input.is_action_pressed("throw"):
+		hand_left.ungrab()
+		discarded.emit()
 
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
@@ -118,8 +120,9 @@ func get_dir():
 	return dir.normalized()
 
 func get_dir_aim():
-	dir_aim.x = Input.get_axis("aim_left", "aim_right")
-	dir_aim.y = Input.get_axis("aim_up", "aim_down")
+	# Thanks to golddotasksquestions on Reddit
+	dir_aim.x = -Input.get_action_strength("aim_left") + Input.get_action_strength("aim_right") 
+	dir_aim.y = +Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 	return dir.normalized()
 
 func _on_area_2d_body_entered(body):
@@ -138,3 +141,7 @@ func _on_area_2d_body_entered(body):
 
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+
+func _on_hand_left_enemy_grabbed():
+	enemy_held.emit()
