@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed = 200
 var charge_speed = speed * 5
 
+@export var score_value = 20
+
 @onready var player = get_node("/root/main/Player")
 
 var charging_up = false

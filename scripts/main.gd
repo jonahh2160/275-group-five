@@ -7,6 +7,7 @@ extends Node
 var mobSpawnerList
 var enemyList
 var wave = 0
+var score = 0
 var base_num_enemies = 2
 var enemies_to_spawn
 var player
@@ -57,3 +58,7 @@ func start_next_wave():
 func _on_check_for_enemies_timeout():
 	if (get_node("Enemies").get_child_count() == 0):
 		start_next_wave()
+
+func _on_enemies_child_exiting_tree(node):
+	score += node.score_value
+	$HUD/MarginContainer/ScoreLabel.text = "Score: " + str(score)

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 200
 
+@export var score_value = 10
+
 @onready var player = get_node("/root/main/Player")
 @onready var color = GlobalFunctions.getRandFromList(["red", "orange", "grey", "green"]) + "_gumby"
 
@@ -14,3 +16,4 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 	velocity = position.direction_to(player.position) * speed
 	move_and_slide()
+

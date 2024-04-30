@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 200
 
+@export var score_value = 15
+
 @onready var player = get_node("/root/main/Player")
 
 var blowing_up = false
