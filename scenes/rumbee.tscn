@@ -1,16 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8gjmceyf3ps6"]
+[gd_scene load_steps=12 format=3 uid="uid://c8gjmceyf3ps6"]
 
 [ext_resource type="Script" path="res://scripts/Rumbee.gd" id="1_us8pf"]
-[ext_resource type="Texture2D" uid="uid://cbumcp5wyae8u" path="res://art/placeholderBlock.png" id="2_a5sx2"]
+[ext_resource type="Texture2D" uid="uid://l3xij0wakr7x" path="res://art/Gumby/Gumby 4.png" id="2_xawm6"]
+[ext_resource type="Texture2D" uid="uid://dsewrjkgh4nqc" path="res://art/Gumby/Gumby 8.png" id="3_k1whl"]
+[ext_resource type="Texture2D" uid="uid://c7hl8abfw8dq3" path="res://art/Gumby/Gumby 1.png" id="4_s1igq"]
+[ext_resource type="Texture2D" uid="uid://bs4ohuy1wqfjs" path="res://art/Gumby/Gumby 13.png" id="5_h2vow"]
+[ext_resource type="Texture2D" uid="uid://dml4y00v1k0r3" path="res://art/Gumby/Gumby 2.png" id="6_jbnom"]
+[ext_resource type="Texture2D" uid="uid://pwjnqtv32mwa" path="res://art/Gumby/Gumby 6.png" id="7_w33x4"]
+[ext_resource type="Texture2D" uid="uid://dy0c4x1fogcu8" path="res://art/Gumby/Gumby 3.png" id="8_7s205"]
+[ext_resource type="Texture2D" uid="uid://c75vxjdpe41gc" path="res://art/Gumby/Gumby 7.png" id="9_oueh4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_a5sx2")
+"texture": ExtResource("2_xawm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k1whl")
 }],
 "loop": true,
-"name": &"default",
+"name": &"green_gumby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_s1igq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h2vow")
+}],
+"loop": true,
+"name": &"grey_gumby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jbnom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w33x4")
+}],
+"loop": true,
+"name": &"orange_gumby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7s205")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oueh4")
+}],
+"loop": true,
+"name": &"red_gumby",
 "speed": 5.0
 }]
 
@@ -25,7 +68,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
+animation = &"red_gumby"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_8c2lt")
 debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)

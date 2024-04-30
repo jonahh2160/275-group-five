@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 200
-var charge_speed = speed * 4
+var charge_speed = speed * 5
 
 @onready var player = get_node("/root/main/Player")
 
@@ -13,7 +13,7 @@ var tracked_player_pos
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (player.position.x <= position.x):
+	if (player.position.x >= position.x):
 		$AnimatedSprite2D.flip_h = false
 	else:
 		$AnimatedSprite2D.flip_h = true
@@ -51,6 +51,11 @@ func charge(delta):
 	velocity = Vector2.ZERO
 	velocity = position.direction_to(tracked_player_pos) * charge_speed
 	position += velocity * delta
+	if (position.x - tracked_player_pos.x < 20 and position.x - tracked_player_pos.x > -20 and position.y - tracked_player_pos.y < 20 and position.y - tracked_player_pos.y > -20):
+		num_blinks = 3
+		charged_up = false
+		charging_up = false
+		$ChargeTimer.stop()
 
 
 
