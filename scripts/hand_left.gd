@@ -30,7 +30,7 @@ func _process(delta):
 		
 
 func _on_body_entered(body):
-	if grabbing:
+	if grabbing && current_held == 0:
 		match body.score_value:
 			# Bombclock
 			15:
