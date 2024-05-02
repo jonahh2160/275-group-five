@@ -159,7 +159,6 @@ scale = Vector2(0.612186, 0.596712)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 z_index = 1
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_cpll7")
 animation = &"still_image"
 

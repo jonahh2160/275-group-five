@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://3yj3nv0hq6ur"]
+[gd_scene load_steps=4 format=3 uid="uid://3yj3nv0hq6ur"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_x1u1y"]
+[ext_resource type="FontFile" uid="uid://cygdphvgqofry" path="res://fnt/Kenney Space.ttf" id="2_h7kqj"]
 [ext_resource type="AudioStream" uid="uid://bffgdi8cykimd" path="res://snd/thebeatisgameover.ogg" id="3_vufv5"]
 
 [node name="GameOver" type="Control"]
@@ -44,18 +45,28 @@ text = "COPE"
 [node name="PlayAgain" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("2_h7kqj")
+theme_override_font_sizes/font_size = 40
 text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h7kqj")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 70
-text = "Quit"
+theme_override_fonts/font = ExtResource("2_h7kqj")
+theme_override_font_sizes/font_size = 40
+text = "Exit
+"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vufv5")
 autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -61,6 +61,7 @@ theme_override_constants/margin_bottom = 5
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../MarginContainer2/Credits")
+focus_previous = NodePath("../../MarginContainer2/Credits")
 theme_override_fonts/font = ExtResource("3_qbop3")
 theme_override_font_sizes/font_size = 40
 shortcut = SubResource("Shortcut_1evcf")
@@ -77,6 +78,8 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 focus_neighbor_top = NodePath("../../MarginContainer/PlayButton")
 focus_neighbor_bottom = NodePath("../../MarginContainer3/Quit")
+focus_next = NodePath("../../MarginContainer/PlayButton")
+focus_previous = NodePath("../../MarginContainer3/Quit")
 theme_override_fonts/font = ExtResource("3_qbop3")
 theme_override_font_sizes/font_size = 40
 text = "Credits"
@@ -91,6 +94,7 @@ theme_override_constants/margin_bottom = 5
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../MarginContainer2/Credits")
+focus_next = NodePath("../../MarginContainer2/Credits")
 theme_override_fonts/font = ExtResource("3_qbop3")
 theme_override_font_sizes/font_size = 40
 text = "Exit"

@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	$Button.grab_focus()
 
 func _on_area_2d_mouse_entered():
 	$Area2D/AnimatedSprite2D.play("exploding")

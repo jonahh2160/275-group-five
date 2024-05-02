@@ -9,7 +9,7 @@ var enemyList
 var wave = 0
 var score = 0
 var base_num_enemies = 2
-var cur_enemy_count
+var cur_enemy_count = 0
 var enemies_to_spawn
 var player
 
@@ -76,6 +76,6 @@ func _on_player_discarded():
 	$HUD.hide_ability()
 
 
-func _on_enemies_child_entered_tree(node):
+func _on_enemies_child_entered_tree(_node):
 	cur_enemy_count += 1
 	$HUD/EnemiesLeftLabel.text = "Enemies left: " + str(cur_enemy_count)
