@@ -73,10 +73,10 @@ func _on_player_enemy_held():
 	$HUD.show_ability($Player/HandLeft.current_held)
 
 
-func _on_player_discarded():
-	$HUD.hide_ability()
-
-
 func _on_enemies_child_entered_tree(_node):
 	cur_enemy_count += 1
 	$HUD/EnemiesLeftLabel.text = "Enemies left: " + str(cur_enemy_count)
+
+
+func _on_player_enemy_discarded():
+	$HUD.hide_ability()

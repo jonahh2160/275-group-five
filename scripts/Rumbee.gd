@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var player = get_node("/root/main/Player")
 @onready var color = GlobalFunctions.getRandFromList(["red", "orange", "grey", "green"]) + "_gumby"
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$AnimatedSprite2D.play(color)
 	if (player.position.x <= position.x):
 		$AnimatedSprite2D.flip_h = false

@@ -2,16 +2,18 @@ extends Area2D
 
 var punch_dir = Vector2.ZERO
 var punching = false
+var has_punched = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $PunchTimer.get_time_left() > 0:
+	if $PunchTimer.get_time_left() > 0 and punching and !has_punched:
 		position += punch_dir.normalized() * 800 * delta
 	elif (position.x > -63 || position.x < -67) || (position.y < 25 || position.y > 29):
 		position += (Vector2(-65, 27) - position).normalized() * 800 * delta
 	else:
 		if punching:
 			punching = false
+			has_punched = false
 			$AnimatedSprite2D.play("default")
 		if rotation_degrees != -30:
 			rotation_degrees = -30
@@ -24,5 +26,6 @@ func punch(dir):
 	$PunchTimer.start()
 
 func _on_body_entered(body):
-	if punching:
+	if punching and !has_punched:
 		body.queue_free()
+		has_punched = true

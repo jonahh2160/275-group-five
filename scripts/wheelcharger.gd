@@ -31,10 +31,10 @@ func _process(delta):
 			charge_up()
 			$ChargeTimer.start()
 		else:
-			normal_move(delta)
+			normal_move()
 
 
-func normal_move(delta):
+func normal_move():
 	velocity = Vector2.ZERO
 	velocity = position.direction_to(player.position) * speed
 	move_and_slide()

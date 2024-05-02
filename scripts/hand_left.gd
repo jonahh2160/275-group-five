@@ -1,9 +1,11 @@
 extends Area2D
 
 signal enemy_grabbed
+signal enemy_discarded
 
 var current_held = 0
 var grabbing = false
+var has_grabbed = false
 var grab_dir = Vector2.ZERO
 
 func grab(dir):
@@ -15,22 +17,24 @@ func grab(dir):
 func ungrab():
 	if not grabbing:
 		current_held = 0
+		enemy_discarded.emit()
 		$AnimatedSprite2D.play("default")
 
 func _process(delta):
-	if $GrabTimer.get_time_left() > 0 && current_held == 0:
+	if $GrabTimer.get_time_left() > 0 && current_held == 0 && !has_grabbed:
 		position += grab_dir.normalized() * 800 * delta
 	elif (position.x < 63 || position.x > 67) || (position.y < 25 || position.y > 29):
 		position += (Vector2(65, 27) - position).normalized() * 800 * delta
 	else:
 		if grabbing :
 			grabbing = false
+			has_grabbed = false
 		if rotation_degrees != 30:
 			rotation_degrees = 30
 		
 
 func _on_body_entered(body):
-	if grabbing && current_held == 0:
+	if grabbing && current_held == 0 && !has_grabbed:
 		match body.score_value:
 			# Bombclock
 			15:
@@ -54,3 +58,5 @@ func _on_body_entered(body):
 						$AnimatedSprite2D.play("gumby_green")
 		body.queue_free()
 		enemy_grabbed.emit()
+		has_grabbed = true
+

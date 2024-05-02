@@ -12,7 +12,7 @@ var count_down = 5
 @export var explosion: PackedScene
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if (blowing_up):
 		pass
 	else:
@@ -23,10 +23,10 @@ func _process(delta):
 			blowing_up = true
 			$Timer.start()
 		else:
-			normal_move(delta)
+			normal_move()
 
 
-func normal_move(delta):
+func normal_move():
 	if (player.position.x <= position.x):
 		$AnimatedSprite2D.flip_h = false
 	else:

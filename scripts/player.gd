@@ -1,7 +1,7 @@
 extends CharacterBody2D
 signal hit
 signal enemy_held
-signal discarded
+signal enemy_discarded
 
 @export var speed = 600
 @export var accel = 10
@@ -85,7 +85,6 @@ func free_state(delta):
 	
 	if Input.is_action_pressed("throw"):
 		hand_left.ungrab()
-		discarded.emit()
 	
 	if (Input.is_action_pressed("punch") and not hand_right.punching):
 		get_dir_aim()
@@ -137,7 +136,7 @@ func get_dir_aim():
 	dir_aim.y = +Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 	return dir.normalized()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	if i_frames <= 0:
 		health -= 1
 		set_modulate(Color("red"))
@@ -157,3 +156,7 @@ func game_over():
 
 func _on_hand_left_enemy_grabbed():
 	enemy_held.emit()
+
+
+func _on_hand_left_enemy_discarded():
+	enemy_discarded.emit()
