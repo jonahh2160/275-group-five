@@ -66,6 +66,7 @@ func _on_enemies_child_exiting_tree(node):
 	score += node.score_value
 	cur_enemy_count -= 1
 	$HUD/MarginContainer/VBoxContainer/ScoreLabel.text = "Score: " + str(score)
+	$HUD/EnemiesLeftLabel.text = "Enemies left: " + str(cur_enemy_count)
 
 
 func _on_player_enemy_held():
