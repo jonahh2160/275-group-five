@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxcoe116iwmmc"]
+[gd_scene load_steps=6 format=3 uid="uid://cxcoe116iwmmc"]
 
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_0h754"]
 [ext_resource type="Texture2D" uid="uid://c1x6ji7lnvg6n" path="res://art/Logo.png" id="1_1sj28"]
-[ext_resource type="Script" path="res://scripts/PlayButton.gd" id="1_5r7fw"]
+[ext_resource type="FontFile" uid="uid://cygdphvgqofry" path="res://fnt/Kenney Space.ttf" id="3_qbop3"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_wtlfb"]
 action = &"start"
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0h754")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -24,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0117761, 0.211724, 0.935332, 1)
+color = Color(0, 0.0954084, 0.614221, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -41,6 +43,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_top = -31.43
+offset_bottom = 222.57
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -49,12 +53,44 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("3_qbop3")
+theme_override_font_sizes/font_size = 40
 shortcut = SubResource("Shortcut_1evcf")
 text = "Play"
-script = ExtResource("1_5r7fw")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/PlayButton" to="CenterContainer/VBoxContainer/MarginContainer/PlayButton" method="_on_pressed"]
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Credits" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qbop3")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qbop3")
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer2/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer3/Quit" to="." method="_on_quit_pressed"]
