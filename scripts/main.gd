@@ -12,6 +12,7 @@ var base_num_enemies = 2
 var cur_enemy_count = 0
 var enemies_to_spawn
 var player
+@export var pause_menu: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,11 @@ func _ready():
 	mobSpawnerList = $MobSpawners.get_children()
 	enemyList = [bombEnemy_scene, wheelEnemy_scene, rumbee_scene]
 	start_next_wave()
+
+func _process(_delta):
+	if Input.is_action_pressed("pause"):
+		$HUD.add_child(pause_menu.instantiate())
+		get_tree().paused = true
 
 func spawn_enemy():
 	var enemyToSpawn = GlobalFunctions.getRandFromList(enemyList).instantiate()

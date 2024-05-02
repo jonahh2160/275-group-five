@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckko6e5m683jy"]
+
+[ext_resource type="Script" path="res://scripts/pausemenu.gd" id="1_ralfn"]
+[ext_resource type="FontFile" uid="uid://cygdphvgqofry" path="res://fnt/Kenney Space.ttf" id="2_br7qa"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ralfn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -127.0
+offset_right = 321.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Resume" type="Button" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_br7qa")
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ExitToMain" type="Button" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_br7qa")
+theme_override_font_sizes/font_size = 40
+text = "Exit To Main"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ExitToScreen" type="Button" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_br7qa")
+theme_override_font_sizes/font_size = 40
+text = "Exit To Desktop"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.121569, 0.121569, 0.121569, 0.47451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer3/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/ExitToMain" to="." method="_on_exit_to_main_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/ExitToScreen" to="." method="_on_exit_to_screen_pressed"]
