@@ -177,5 +177,6 @@ shape = SubResource("RectangleShape2D_a0btr")
 [connection signal="enemy_held" from="Player" to="." method="_on_player_enemy_held"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="hurt_timer_timout" from="HUD" to="." method="_on_hud_hurt_timer_timout"]
+[connection signal="child_entered_tree" from="Enemies" to="." method="_on_enemies_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Enemies" to="." method="_on_enemies_child_exiting_tree"]
 [connection signal="timeout" from="CheckForEnemies" to="." method="_on_check_for_enemies_timeout"]

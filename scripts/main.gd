@@ -9,8 +9,10 @@ var enemyList
 var wave = 0
 var score = 0
 var base_num_enemies = 2
+var cur_enemy_count
 var enemies_to_spawn
 var player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("Player")
@@ -49,6 +51,7 @@ func _on_hud_hurt_timer_timout():
 
 func start_next_wave():
 	wave += 1
+	$HUD/MarginContainer/VBoxContainer/WaveLabel.text = "Wave: " + str(wave)
 	enemies_to_spawn = base_num_enemies + wave
 	while (enemies_to_spawn > 0):
 		await get_tree().create_timer(.3).timeout
@@ -61,7 +64,8 @@ func _on_check_for_enemies_timeout():
 
 func _on_enemies_child_exiting_tree(node):
 	score += node.score_value
-	$HUD/MarginContainer/ScoreLabel.text = "Score: " + str(score)
+	cur_enemy_count -= 1
+	$HUD/MarginContainer/VBoxContainer/ScoreLabel.text = "Score: " + str(score)
 
 
 func _on_player_enemy_held():
@@ -70,3 +74,8 @@ func _on_player_enemy_held():
 
 func _on_player_discarded():
 	$HUD.hide_ability()
+
+
+func _on_enemies_child_entered_tree(node):
+	cur_enemy_count += 1
+	$HUD/EnemiesLeftLabel.text = "Enemies left: " + str(cur_enemy_count)

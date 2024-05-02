@@ -222,13 +222,22 @@ theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 metadata/_edit_group_ = true
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_tv7qk")
 theme_override_font_sizes/font_size = 42
 text = "Score: 0"
 horizontal_alignment = 2
+
+[node name="WaveLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tv7qk")
+theme_override_font_sizes/font_size = 36
+text = "Wave: 0"
 
 [node name="HealthLabel" type="Label" parent="."]
 offset_top = 1.0
@@ -300,5 +309,14 @@ z_index = -1
 position = Vector2(8.72016e-05, -7.15256e-06)
 scale = Vector2(1.02963, 1.01529)
 texture = ExtResource("34_ffjft")
+
+[node name="EnemiesLeftLabel" type="Label" parent="."]
+offset_left = 38.0
+offset_top = 1005.0
+offset_right = 369.0
+offset_bottom = 1041.0
+theme_override_fonts/font = ExtResource("2_tv7qk")
+theme_override_font_sizes/font_size = 22
+text = "Enemies left: 0"
 
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
