@@ -136,6 +136,7 @@ position = Vector2(2424, 552)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_m3xgd")
+volume_db = -6.0
 autoplay = true
 
 [node name="Walls" type="Node2D" parent="."]

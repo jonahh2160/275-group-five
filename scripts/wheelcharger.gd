@@ -12,6 +12,7 @@ var charged_up = false
 var required_distance_to_charge = 400
 var num_blinks = 3
 var tracked_player_pos
+var played_sfx = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,6 +23,9 @@ func _process(delta):
 	if (charging_up):
 		if (charged_up):
 			charge(delta)
+			if not played_sfx:
+				played_sfx = true
+				$AudioStreamPlayer2D.play()
 		else:
 			pass
 	else:
@@ -30,9 +34,10 @@ func _process(delta):
 			charging_up = true
 			charge_up()
 			$ChargeTimer.start()
+			$AudioStreamPlayer2D2.pitch_scale = randf_range(1, 2)
+			$AudioStreamPlayer2D2.play()
 		else:
 			normal_move()
-
 
 func normal_move():
 	velocity = Vector2.ZERO
@@ -48,6 +53,7 @@ func charge_up():
 		await get_tree().create_timer(.5).timeout
 		num_blinks -= 1
 	charged_up = true
+	played_sfx = false
 
 func charge(delta):
 	velocity = Vector2.ZERO
@@ -58,8 +64,6 @@ func charge(delta):
 		charged_up = false
 		charging_up = false
 		$ChargeTimer.stop()
-
-
 
 func _on_charge_timer_timeout():
 	num_blinks = 3
