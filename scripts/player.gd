@@ -146,6 +146,7 @@ func get_dir_aim():
 func _on_area_2d_body_entered(body):
 	if charging:
 		body.queue_free()
+		$DestroyEnemy.play()
 	if i_frames <= 0:
 		health -= 1
 		set_modulate(Color("red"))
@@ -163,10 +164,8 @@ func _on_area_2d_body_entered(body):
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
-
 func _on_hand_left_enemy_grabbed():
 	enemy_held.emit()
-
 
 func _on_hand_left_enemy_discarded():
 	enemy_discarded.emit()

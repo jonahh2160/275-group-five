@@ -30,7 +30,10 @@ func spawn_enemy():
 	var enemyToSpawn = GlobalFunctions.getRandFromList(enemyList).instantiate()
 	var useSpawner = GlobalFunctions.getRandFromList(mobSpawnerList)
 	enemyToSpawn.position = useSpawner.position
-	useSpawner.get_child(1).play()
+	if GlobalFunctions.secret_sound:
+		useSpawner.get_child(0).play()
+	else:
+		useSpawner.get_child(1).play()
 	useSpawner.get_parent().get_parent().get_node("Enemies").add_child(enemyToSpawn)
 
 func _on_player_hit():

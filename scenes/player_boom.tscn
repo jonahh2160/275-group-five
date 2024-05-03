@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://eqhdyutd1evx"]
+[gd_scene load_steps=36 format=3 uid="uid://eqhdyutd1evx"]
 
 [ext_resource type="Script" path="res://scripts/player_boom.gd" id="1_hrbxi"]
 [ext_resource type="Texture2D" uid="uid://b4sn6e4qvao32" path="res://effects/Effect_Explosion_1/Effect_Explosion_1_000.png" id="1_ocgvb"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cm8b1uhvbwf8x" path="res://effects/Effect_Explosion_1/Effect_Explosion_1_028.png" id="29_7f1sw"]
 [ext_resource type="Texture2D" uid="uid://mu23117u7hlh" path="res://effects/Effect_Explosion_1/Effect_Explosion_1_029.png" id="30_h2mg4"]
 [ext_resource type="AudioStream" uid="uid://drl6wr6ho03h6" path="res://snd/kenney_sci-fi-sounds/Audio/explosionCrunch_000.ogg" id="32_1ww6p"]
+[ext_resource type="AudioStream" uid="uid://4g8dm18kbg0e" path="res://snd/zapsplat_multimedia_game_sound_retro_impact_hit_or_punch_001_38394.mp3" id="33_n4lgx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tnr0n"]
 radius = 263.23
@@ -135,7 +136,6 @@ animations = [{
 }]
 
 [node name="PlayerBoom" type="Area2D"]
-scale = Vector2(1.8, 1.8)
 collision_mask = 2
 script = ExtResource("1_hrbxi")
 metadata/_edit_group_ = true
@@ -153,6 +153,9 @@ frame_progress = 0.833046
 
 [node name="BoomPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("32_1ww6p")
+
+[node name="DestroyEnemy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_n4lgx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

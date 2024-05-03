@@ -11,7 +11,9 @@ func _on_boom_player_finished():
 
 func _on_body_exited(body):
 	body.queue_free()
+	$DestroyEnemy.play()
 
 
 func _on_body_entered(body):
 	body.queue_free()
+	$DestroyEnemy.play()
