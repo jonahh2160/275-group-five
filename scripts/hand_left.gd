@@ -28,7 +28,6 @@ func ungrab():
 		position = Vector2(65, 27)
 
 func _process(delta):
-	print(position)
 	if $GrabTimer.get_time_left() > 0 && current_held == 0 && !has_grabbed:
 		position += grab_dir.normalized() * 800 * delta
 	elif swiping:
@@ -41,6 +40,8 @@ func _process(delta):
 			has_grabbed = false
 		if rotation_degrees != 30:
 			rotation_degrees = 30
+		if position != Vector2(65, 27):
+			position = Vector2(65, 27)
 		
 
 func _on_body_entered(body):
