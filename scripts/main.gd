@@ -38,9 +38,9 @@ func spawn_enemy():
 	enemyToSpawn.position = useSpawner.position
 	
 	if GlobalFunctions.secret_sound:
-		useSpawner.get_child(0).play()
-	else:
 		useSpawner.get_child(1).play()
+	else:
+		useSpawner.get_child(2).play()
 		
 	useSpawner.get_parent().get_parent().get_node("Enemies").add_child(enemyToSpawn)
 

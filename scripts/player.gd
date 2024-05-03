@@ -90,7 +90,7 @@ func free_state(delta):
 					hand_left.ungrab()
 				# Rumbee
 				3:
-					hand_left.ungrab()
+					hand_left.rumbee_swipe(delta)
 	
 	if i_frames > 0 and is_visible() and not dashing:
 		damage_flash()
@@ -216,9 +216,6 @@ func wheel_ability(delta):
 			charging = false
 			dash_cooldown = 30
 			state = 0
-
-func rumbee_ability():
-	pass
 
 func bomb_ability():
 	i_frames = 30

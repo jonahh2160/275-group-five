@@ -3,6 +3,8 @@ extends Area2D
 signal enemy_grabbed
 signal enemy_discarded
 
+@onready var player = get_node("/root/main/Player")
+
 var current_held = 0
 var grabbing = false
 var has_grabbed = false
@@ -16,7 +18,7 @@ func grab(dir):
 	$GrabTimer.start()
 
 func ungrab():
-	if not grabbing:
+	if !grabbing || swiping:
 		current_held = 0
 		enemy_discarded.emit()
 		$AnimatedSprite2D.play("default")
@@ -25,7 +27,7 @@ func _process(delta):
 	if $GrabTimer.get_time_left() > 0 && current_held == 0 && !has_grabbed:
 		position += grab_dir.normalized() * 800 * delta
 	elif swiping:
-		pass
+		rumbee_swipe(delta)
 	elif (position.x < 63 || position.x > 67) || (position.y < 25 || position.y > 29):
 		position += (Vector2(65, 27) - position).normalized() * 800 * delta
 	else:
@@ -64,6 +66,34 @@ func _on_body_entered(body):
 		$AudioStreamPlayer2D.play()
 		enemy_grabbed.emit()
 		has_grabbed = true
+	elif swiping:
+		body.queue_free()
+		$AudioStreamPlayer2D.pitch_scale = randf_range(0.75, 2)
+		$AudioStreamPlayer2D.play()
 
-func rumbee_swipe():
-	swiping = true
+func rumbee_swipe(delta):
+	if not $SwipeTimer.is_stopped():
+		# Do swipe
+		pass
+	else:
+		swiping = true
+		
+		# Get a direction at all costs
+		grab_dir = player.get_dir_aim()
+		if grab_dir == Vector2.ZERO:
+			grab_dir = player.get_dir()
+		if grab_dir == Vector2.ZERO:
+			grab_dir = Vector2(1,0)
+			
+		# Move to start position
+		position = grab_dir * 120
+		rotation = grab_dir.angle()	
+		
+		$SwipeTimer.start()
+	
+
+
+
+func _on_swipe_timer_timeout():
+	ungrab()
+	swiping = false

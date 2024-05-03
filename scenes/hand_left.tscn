@@ -90,8 +90,13 @@ shape = SubResource("CapsuleShape2D_aal1y")
 wait_time = 0.75
 one_shot = true
 
+[node name="SwipeTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_l6we3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="GrabTimer" to="." method="_on_grab_timer_timeout"]
+[connection signal="timeout" from="SwipeTimer" to="." method="_on_swipe_timer_timeout"]
