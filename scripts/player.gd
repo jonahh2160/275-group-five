@@ -6,12 +6,14 @@ signal enemy_discarded
 @export var speed = 600
 @export var accel = 10
 @export var health = 5
+@export var explosion: PackedScene
 
 var dir = Vector2.ZERO
 var dir_aim = Vector2.ZERO
 var hand_left
 var hand_right
 
+var boom
 var state = 0
 var i_frames = 0
 var phase = 0
@@ -19,6 +21,7 @@ var timer = 0
 var screen_size
 var dash_angle
 var dashing
+var charging = false
 var dash_cooldown = 0
 var timer_on = false
 
@@ -41,6 +44,8 @@ func _physics_process(delta):
 			free_state(delta)
 		1:
 			dodge(delta)
+		2:
+			wheel_ability(delta)
 	
 	# I-Frame reduction + flash
 	if i_frames > 0:
@@ -75,13 +80,15 @@ func free_state(delta):
 			match hand_left.current_held:
 				# Bombclock
 				1:
-					pass
+					bomb_ability()
+					hand_left.ungrab()
 				# Wheelcharger
 				2:
-					pass
+					state = 2
+					hand_left.ungrab()
 				# Rumbee
 				3:
-					pass
+					hand_left.ungrab()
 	
 	if Input.is_action_pressed("throw"):
 		hand_left.ungrab()
@@ -136,11 +143,14 @@ func get_dir_aim():
 	dir_aim.y = +Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 	return dir.normalized()
 
-func _on_area_2d_body_entered(_body):
+func _on_area_2d_body_entered(body):
+	if charging:
+		body.queue_free()
 	if i_frames <= 0:
 		health -= 1
 		set_modulate(Color("red"))
 		hit.emit()
+		charging = false
 		i_frames += 75
 	if health <= 0:
 		hide()
@@ -160,3 +170,42 @@ func _on_hand_left_enemy_grabbed():
 
 func _on_hand_left_enemy_discarded():
 	enemy_discarded.emit()
+
+func wheel_ability(delta):
+	
+	i_frames = 15
+	charging = true
+	
+	if timer_on:
+		# Timer is on and dashing: so process the dash itself
+		if dashing:
+			velocity += (dash_angle * speed * 4 * delta)
+			
+		# Timer is already processing, don't create a new one! So return
+		# Code will go back to where the timer was created when it times out
+		return
+	else:
+		if not dashing:
+			# Set dash angle and start a timer
+			dash_angle = dir * 2 # TODO: Why *2?
+			timer_on = true
+			await get_tree().create_timer(0.05).timeout
+			# On timeout, stop timer and start dashing
+			timer_on = false
+			dashing = true
+		else:
+			# Start dash
+			timer_on = true
+			await get_tree().create_timer(0.5).timeout
+			# Reset variables and return to free state on timeout
+			timer_on = false
+			dashing = false
+			dash_cooldown = 30
+			state = 0
+
+func rumbee_ability():
+	pass
+
+func bomb_ability():
+	i_frames = 30
+	add_child(explosion.instantiate())

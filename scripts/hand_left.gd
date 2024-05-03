@@ -7,6 +7,7 @@ var current_held = 0
 var grabbing = false
 var has_grabbed = false
 var grab_dir = Vector2.ZERO
+var swiping = false
 
 func grab(dir):
 	grab_dir = dir
@@ -23,6 +24,8 @@ func ungrab():
 func _process(delta):
 	if $GrabTimer.get_time_left() > 0 && current_held == 0 && !has_grabbed:
 		position += grab_dir.normalized() * 800 * delta
+	elif swiping:
+		pass
 	elif (position.x < 63 || position.x > 67) || (position.y < 25 || position.y > 29):
 		position += (Vector2(65, 27) - position).normalized() * 800 * delta
 	else:
@@ -60,3 +63,5 @@ func _on_body_entered(body):
 		enemy_grabbed.emit()
 		has_grabbed = true
 
+func rumbee_swipe():
+	swiping = true
