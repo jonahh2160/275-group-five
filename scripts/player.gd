@@ -106,14 +106,23 @@ func free_state(delta):
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
 	if velocity.x < 60 and velocity.x > -60:
-		if velocity.y > 0:
-			$AnimatedSprite2D.play("Normal Down")
-		else:
+		if velocity.y < 0:
 			$AnimatedSprite2D.play("Normal Up")
+		else:
+			if health == 1:
+				$AnimatedSprite2D.play("Almost Dead Down")
+			else:
+				$AnimatedSprite2D.play("Normal Down")
 	elif velocity.x > 0:
-		$AnimatedSprite2D.play("Normal Right")
+		if health == 1:
+			$AnimatedSprite2D.play("Almost Dead Right")
+		else:
+			$AnimatedSprite2D.play("Normal Right")
 	else:
-		$AnimatedSprite2D.play("Normal Left")
+		if health == 1:
+			$AnimatedSprite2D.play("Almost Dead Left")
+		else:
+			$AnimatedSprite2D.play("Normal Left")
 
 func dodge(delta):
 	if velocity.x > 0:
