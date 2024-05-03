@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxcoe116iwmmc"]
+[gd_scene load_steps=10 format=3 uid="uid://cxcoe116iwmmc"]
 
 [ext_resource type="Script" path="res://scripts/title.gd" id="1_0h754"]
 [ext_resource type="Texture2D" uid="uid://c1x6ji7lnvg6n" path="res://art/Logo.png" id="1_1sj28"]
 [ext_resource type="Texture2D" uid="uid://dh0yg0jn1vhxn" path="res://art/Beta_Tile.png" id="2_vow2o"]
 [ext_resource type="FontFile" uid="uid://cygdphvgqofry" path="res://fnt/Kenney Space.ttf" id="3_qbop3"]
+[ext_resource type="AudioStream" uid="uid://ng4bs44y10tw" path="res://snd/thebeatisloop.ogg" id="5_7bjrp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2bir0"]
 texture = ExtResource("2_vow2o")
@@ -166,6 +167,11 @@ focus_neighbor_top = NodePath("../../MarginContainer5/Controls")
 theme_override_fonts/font = ExtResource("3_qbop3")
 theme_override_font_sizes/font_size = 40
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7bjrp")
+volume_db = -2.0
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer2/Credits" to="." method="_on_credits_pressed"]
