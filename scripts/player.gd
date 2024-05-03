@@ -52,6 +52,8 @@ func _physics_process(delta):
 		i_frames -= 1
 		if i_frames <= 0:
 			set_modulate(Color(1, 1, 1))
+		if i_frames <= 0:
+			set_modulate(Color(1, 1, 1))
 	# Dash Cooldown
 	if dash_cooldown > 0:
 		dash_cooldown -= 1
@@ -89,6 +91,9 @@ func free_state(delta):
 				# Rumbee
 				3:
 					hand_left.ungrab()
+	
+	if i_frames > 0 and is_visible() and not dashing:
+		damage_flash()
 	
 	if Input.is_action_pressed("throw"):
 		hand_left.ungrab()
@@ -143,6 +148,14 @@ func get_dir_aim():
 	dir_aim.y = +Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 	return dir.normalized()
 
+func damage_flash():
+	if not is_visible():
+		return
+	else:
+		hide()
+		await get_tree().create_timer(0.02).timeout # wait for 1 second
+		show()
+
 func _on_area_2d_body_entered(body):
 	if charging:
 		body.queue_free()
@@ -154,6 +167,7 @@ func _on_area_2d_body_entered(body):
 		charging = false
 		i_frames += 75
 	if health <= 0:
+		$Death.play()
 		hide()
 		hit.emit()
 		$CollisionShape2D.set_deferred("disabled", true) # Don't want player to get hit twiceace with function body.
@@ -199,6 +213,7 @@ func wheel_ability(delta):
 			# Reset variables and return to free state on timeout
 			timer_on = false
 			dashing = false
+			charging = false
 			dash_cooldown = 30
 			state = 0
 

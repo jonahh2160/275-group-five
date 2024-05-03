@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://h6uu3qrq3qet"]
+[gd_scene load_steps=13 format=3 uid="uid://h6uu3qrq3qet"]
 
 [ext_resource type="Script" path="res://scripts/Rumbee.gd" id="1_us8pf"]
+[ext_resource type="Texture2D" uid="uid://bx7quj56xpw1r" path="res://art/Drop_Shadow_.png" id="2_jf4n8"]
 [ext_resource type="Texture2D" uid="uid://l3xij0wakr7x" path="res://art/Gumby/Gumby 4.png" id="2_xawm6"]
 [ext_resource type="Texture2D" uid="uid://dsewrjkgh4nqc" path="res://art/Gumby/Gumby 8.png" id="3_k1whl"]
 [ext_resource type="Texture2D" uid="uid://c7hl8abfw8dq3" path="res://art/Gumby/Gumby 1.png" id="4_s1igq"]
@@ -66,6 +67,12 @@ collision_layer = 2
 collision_mask = 6
 script = ExtResource("1_us8pf")
 metadata/_edit_group_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_jf4n8")
+offset = Vector2(0, 55)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
