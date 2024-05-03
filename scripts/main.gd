@@ -27,13 +27,21 @@ func _process(_delta):
 		get_tree().paused = true
 
 func spawn_enemy():
-	var enemyToSpawn = GlobalFunctions.getRandFromList(enemyList).instantiate()
+	var enemyToSpawn
 	var useSpawner = GlobalFunctions.getRandFromList(mobSpawnerList)
+	
+	if useSpawner.get_name() == "MobSpawner" || useSpawner.get_name() == "MobSpawner3":
+		enemyToSpawn = rumbee_scene.instantiate() 
+	else:
+		enemyToSpawn = GlobalFunctions.getRandFromList(enemyList).instantiate()
+	
 	enemyToSpawn.position = useSpawner.position
+	
 	if GlobalFunctions.secret_sound:
 		useSpawner.get_child(0).play()
 	else:
 		useSpawner.get_child(1).play()
+		
 	useSpawner.get_parent().get_parent().get_node("Enemies").add_child(enemyToSpawn)
 
 func _on_player_hit():

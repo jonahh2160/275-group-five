@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1rerl5j6iy68"]
+[gd_scene load_steps=9 format=3 uid="uid://d1rerl5j6iy68"]
 
 [ext_resource type="AudioStream" uid="uid://bjkwxjy8yvhr2" path="res://snd/metalpipe.mp3" id="1_idt6u"]
+[ext_resource type="Texture2D" uid="uid://b7u8hnu68pl4d" path="res://art/Spawn_Icon.png" id="1_olot4"]
 [ext_resource type="AudioStream" uid="uid://bfkuf8cn7rs6t" path="res://snd/kenney_sci-fi-sounds/Audio/forceField_000.ogg" id="2_io8m3"]
 [ext_resource type="AudioStream" uid="uid://cyc4sbth3f7ge" path="res://snd/kenney_sci-fi-sounds/Audio/forceField_001.ogg" id="3_htmff"]
 [ext_resource type="AudioStream" uid="uid://bp5wqg01cihrh" path="res://snd/kenney_sci-fi-sounds/Audio/forceField_002.ogg" id="4_b7bjd"]
@@ -21,6 +22,10 @@ stream_4/stream = ExtResource("6_esfeu")
 stream_4/weight = 1.0
 
 [node name="MobSpawner" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_olot4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_idt6u")
