@@ -477,8 +477,7 @@ offset = Vector2(0, 55)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
-animation = &"Right 4"
-frame_progress = 0.350247
+animation = &"Left Smile"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

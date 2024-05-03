@@ -267,8 +267,7 @@ scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1nfi5")
-animation = &"Almost Dead Right"
-frame_progress = 0.978136
+animation = &"Normal Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5vdpl")
