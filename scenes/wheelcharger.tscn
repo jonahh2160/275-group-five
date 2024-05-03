@@ -1,14 +1,40 @@
-[gd_scene load_steps=9 format=3 uid="uid://oq4m5br2ohoh"]
+[gd_scene load_steps=13 format=3 uid="uid://oq4m5br2ohoh"]
 
 [ext_resource type="Script" path="res://scripts/wheelcharger.gd" id="1_ufhco"]
 [ext_resource type="Texture2D" uid="uid://xj6i46vjq1pv" path="res://art/mouse/Mouse 5.png" id="2_vx74p"]
 [ext_resource type="Texture2D" uid="uid://bx7quj56xpw1r" path="res://art/Drop_Shadow_.png" id="2_yjm38"]
 [ext_resource type="Texture2D" uid="uid://db4oparsfe340" path="res://art/mouse/Mouse 7.png" id="3_8r7ev"]
+[ext_resource type="Texture2D" uid="uid://ciyhuft0eq4lj" path="res://art/mouse/Mouse.png" id="3_af1da"]
 [ext_resource type="AudioStream" uid="uid://bdbir7a4462in" path="res://snd/kenney_sci-fi-sounds/Audio/laserLarge_004.ogg" id="4_bag0t"]
+[ext_resource type="Texture2D" uid="uid://cbbm37q25u8ka" path="res://art/mouse/Mouse 3.png" id="4_fjdfg"]
 [ext_resource type="AudioStream" uid="uid://cv0bu0y6go71g" path="res://snd/kenney_digital-audio/Audio/pepSound3.ogg" id="5_ctfj2"]
+[ext_resource type="Texture2D" uid="uid://dt6223uplstt" path="res://art/mouse/Mouse 1.png" id="5_uahnm"]
+[ext_resource type="Texture2D" uid="uid://bh3jg7q4u466j" path="res://art/mouse/Mouse 2.png" id="6_fnkqo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_af1da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fjdfg")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_uahnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fnkqo")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_vx74p")
@@ -18,13 +44,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"new_animation",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ey1ss"]
 radius = 22.0227
 
 [node name="Wheelcharger" type="CharacterBody2D"]
+texture_filter = 1
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 6
@@ -41,7 +68,7 @@ offset = Vector2(0, 55)
 sprite_frames = SubResource("SpriteFrames_chmga")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.888042
+frame_progress = 0.195712
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

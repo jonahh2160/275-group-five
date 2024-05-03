@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/Rumbee.gd" id="1_us8pf"]
 [ext_resource type="Texture2D" uid="uid://bx7quj56xpw1r" path="res://art/Drop_Shadow_.png" id="2_jf4n8"]
 [ext_resource type="Texture2D" uid="uid://l3xij0wakr7x" path="res://art/Gumby/Gumby 4.png" id="2_xawm6"]
-[ext_resource type="Texture2D" uid="uid://dsewrjkgh4nqc" path="res://art/Gumby/Gumby 8.png" id="3_k1whl"]
+[ext_resource type="Texture2D" uid="uid://kcd32eitoacv" path="res://art/Gumby/Gumby.png" id="4_5x3xt"]
 [ext_resource type="Texture2D" uid="uid://c7hl8abfw8dq3" path="res://art/Gumby/Gumby 1.png" id="4_s1igq"]
-[ext_resource type="Texture2D" uid="uid://bs4ohuy1wqfjs" path="res://art/Gumby/Gumby 13.png" id="5_h2vow"]
+[ext_resource type="Texture2D" uid="uid://u6an2myaccb1" path="res://art/Gumby/Gumby 5.png" id="6_4bgr6"]
 [ext_resource type="Texture2D" uid="uid://dml4y00v1k0r3" path="res://art/Gumby/Gumby 2.png" id="6_jbnom"]
 [ext_resource type="Texture2D" uid="uid://pwjnqtv32mwa" path="res://art/Gumby/Gumby 6.png" id="7_w33x4"]
 [ext_resource type="Texture2D" uid="uid://dy0c4x1fogcu8" path="res://art/Gumby/Gumby 3.png" id="8_7s205"]
@@ -18,7 +18,7 @@ animations = [{
 "texture": ExtResource("2_xawm6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_k1whl")
+"texture": ExtResource("4_5x3xt")
 }],
 "loop": true,
 "name": &"green_gumby",
@@ -29,7 +29,7 @@ animations = [{
 "texture": ExtResource("4_s1igq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_h2vow")
+"texture": ExtResource("6_4bgr6")
 }],
 "loop": true,
 "name": &"grey_gumby",
@@ -63,6 +63,7 @@ radius = 25.0
 height = 66.0
 
 [node name="Rumbee" type="CharacterBody2D"]
+texture_filter = 1
 collision_layer = 2
 collision_mask = 6
 script = ExtResource("1_us8pf")
@@ -77,8 +78,10 @@ offset = Vector2(0, 55)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chmga")
 animation = &"red_gumby"
+frame_progress = 0.199532
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_ed7oe")
 debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)
