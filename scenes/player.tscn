@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyxssjyp70hnl"]
+[gd_scene load_steps=46 format=3 uid="uid://cyxssjyp70hnl"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kb134"]
 [ext_resource type="Texture2D" uid="uid://yfenfl431csc" path="res://art/Goober/Goober(2).png" id="2_aa370"]
@@ -8,12 +8,171 @@
 [ext_resource type="Texture2D" uid="uid://d4huf7c5iha6y" path="res://art/Goober/Goober 9.png" id="4_6voj2"]
 [ext_resource type="Texture2D" uid="uid://buxb5pme2tkph" path="res://art/Goober/Arm_Ball.png" id="5_lgb7x"]
 [ext_resource type="PackedScene" uid="uid://by7gkp88vxdwn" path="res://scenes/hand_left.tscn" id="5_v2x68"]
+[ext_resource type="Texture2D" uid="uid://dlkuj2re7tafb" path="res://art/Goober2/Goober 2.png" id="6_jx5n1"]
+[ext_resource type="Texture2D" uid="uid://cdqtna86dsuf8" path="res://art/Goober2/Goober 1.png" id="7_es40w"]
 [ext_resource type="PackedScene" uid="uid://bc676qf1bhtbl" path="res://scenes/hand_right.tscn" id="7_v20c5"]
+[ext_resource type="Texture2D" uid="uid://b3j0wtlpx0p0b" path="res://art/Goober2/Goober.png" id="8_qxs6r"]
+[ext_resource type="Texture2D" uid="uid://bs7fecmx12gm3" path="res://art/Goober2/Goober 8.png" id="9_0lgwc"]
 [ext_resource type="AudioStream" uid="uid://4g8dm18kbg0e" path="res://snd/zapsplat_multimedia_game_sound_retro_impact_hit_or_punch_001_38394.mp3" id="9_7hxrs"]
+[ext_resource type="Texture2D" uid="uid://bp3m5ni4msqkq" path="res://art/Goober2/Goober 6.png" id="10_d3yul"]
 [ext_resource type="AudioStream" uid="uid://df0vl064xrxl1" path="res://snd/kenney_sci-fi-sounds/Audio/slime_000.ogg" id="10_o7grm"]
+[ext_resource type="Texture2D" uid="uid://bs5dhvvvpoly1" path="res://art/Goober2/Goober 7.png" id="11_nu824"]
+[ext_resource type="Texture2D" uid="uid://diim6k85rnbl3" path="res://art/Goober2/Goober 5.png" id="12_i64un"]
+[ext_resource type="Texture2D" uid="uid://mwgensgwd2dj" path="res://art/Goober2/Goober 3.png" id="13_bk8b1"]
+[ext_resource type="Texture2D" uid="uid://c87tjgeadrywr" path="res://art/Goober2/Goober 4.png" id="14_xejmr"]
+[ext_resource type="Texture2D" uid="uid://bknovbb8wtf8w" path="res://art/Goober3/Goober.png" id="15_7xjyp"]
+[ext_resource type="Texture2D" uid="uid://y0o8ypk8aa4q" path="res://art/Goober3/Goober 3.png" id="16_g8jvt"]
+[ext_resource type="Texture2D" uid="uid://b0jop2oxl7ae" path="res://art/Goober3/Goober 2.png" id="17_vjkvc"]
+[ext_resource type="Texture2D" uid="uid://o886rp11nka7" path="res://art/Goober3/Goober 1.png" id="18_dftrs"]
+[ext_resource type="Texture2D" uid="uid://n0yftv0tv01u" path="res://art/Goober3/Goober (1).png" id="19_yo6v0"]
+[ext_resource type="Texture2D" uid="uid://bn57vcypo7402" path="res://art/Goober2/Goober 11.png" id="20_y34qr"]
+[ext_resource type="Texture2D" uid="uid://b77ab6523u4kv" path="res://art/Goober2/Goober 10.png" id="21_1l7i4"]
+[ext_resource type="Texture2D" uid="uid://bh6t3q51vit6n" path="res://art/Goober2/Goober 9.png" id="22_y0jiy"]
+[ext_resource type="Texture2D" uid="uid://dbntx764slks8" path="res://art/Goober2/Goober 17.png" id="23_muli7"]
+[ext_resource type="Texture2D" uid="uid://cdj5svsn0n80v" path="res://art/Goober2/Goober 16.png" id="24_tgk45"]
+[ext_resource type="Texture2D" uid="uid://42mo0nvsif58" path="res://art/Goober2/Goober 15.png" id="25_tbf8i"]
+[ext_resource type="Texture2D" uid="uid://c7vlafshh37e8" path="res://art/Goober2/Goober 14.png" id="26_ogord"]
+[ext_resource type="Texture2D" uid="uid://dx5jsyhtqj38r" path="res://art/Goober2/Goober 12.png" id="27_r4s1e"]
+[ext_resource type="Texture2D" uid="uid://cwqq2lqi0d25k" path="res://art/Goober2/Goober 13.png" id="28_odyv2"]
+[ext_resource type="Texture2D" uid="uid://hsig5an76dl5" path="res://art/Goober/Goober 8.png" id="32_padsi"]
+[ext_resource type="Texture2D" uid="uid://bl0s3twr7podv" path="res://art/Goober/Goober 7.png" id="33_m7spt"]
+[ext_resource type="Texture2D" uid="uid://d15wr635x005j" path="res://art/Goober/Goober 6.png" id="34_uhfrb"]
+[ext_resource type="Texture2D" uid="uid://btvcspcxy6ypg" path="res://art/Goober/Goober 5.png" id="35_axnk2"]
+[ext_resource type="Texture2D" uid="uid://o7l2e7fwdnby" path="res://art/Goober/Goober 3.png" id="36_2anns"]
+[ext_resource type="Texture2D" uid="uid://cnlo0sgjmnk6l" path="res://art/Goober/Goober 4.png" id="37_xfnro"]
+[ext_resource type="Texture2D" uid="uid://dopiqwqnyk7wc" path="res://art/Goober/Goober 2.png" id="38_5jqfr"]
+[ext_resource type="Texture2D" uid="uid://tg6n7cntv4bg" path="res://art/Goober/Goober 1.png" id="39_dfhiu"]
+[ext_resource type="Texture2D" uid="uid://crc57awma0xw6" path="res://art/Goober/Goober.png" id="40_6r5yu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nfi5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jx5n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_es40w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jx5n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qxs6r")
+}],
+"loop": true,
+"name": &"Almost Dead Down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0lgwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d3yul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0lgwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nu824")
+}],
+"loop": true,
+"name": &"Almost Dead Left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_i64un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bk8b1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i64un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xejmr")
+}],
+"loop": true,
+"name": &"Almost Dead Right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_7xjyp")
+}],
+"loop": true,
+"name": &"Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_g8jvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vjkvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dftrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yo6v0")
+}],
+"loop": false,
+"name": &"Die Down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_y34qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1l7i4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_y34qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_y0jiy")
+}],
+"loop": true,
+"name": &"Hurt Down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_muli7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_tgk45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_muli7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_tbf8i")
+}],
+"loop": true,
+"name": &"Hurt Left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_ogord")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_r4s1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ogord")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_odyv2")
+}],
+"loop": true,
+"name": &"Hurt Right",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_aa370")
@@ -27,8 +186,59 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_6voj2")
 }],
-"loop": false,
-"name": &"default",
+"loop": true,
+"name": &"Normal Down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_padsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_m7spt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_padsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_uhfrb")
+}],
+"loop": true,
+"name": &"Normal Left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_axnk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_2anns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_axnk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_xfnro")
+}],
+"loop": true,
+"name": &"Normal Right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_5jqfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_dfhiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_5jqfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_6r5yu")
+}],
+"loop": true,
+"name": &"Normal Up",
 "speed": 8.0
 }]
 
@@ -57,8 +267,8 @@ scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1nfi5")
-frame = 1
-frame_progress = 0.918635
+animation = &"Almost Dead Right"
+frame_progress = 0.978136
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5vdpl")
