@@ -12,6 +12,7 @@ var dir = Vector2.ZERO
 var dir_aim = Vector2.ZERO
 var hand_left
 var hand_right
+var is_hurt = false
 
 var boom
 var state = 0
@@ -52,7 +53,9 @@ func _physics_process(delta):
 		i_frames -= 1
 		if i_frames <= 0:
 			set_modulate(Color(1, 1, 1))
+			is_hurt = false
 		if i_frames <= 0:
+			is_hurt = false
 			set_modulate(Color(1, 1, 1))
 	# Dash Cooldown
 	if dash_cooldown > 0:
@@ -105,24 +108,25 @@ func free_state(delta):
 
 	# Credit to KobeDev on YouTube
 	velocity = lerp(velocity, dir * speed, delta * accel)
-	if velocity.x < 60 and velocity.x > -60:
-		if velocity.y < 0:
-			$AnimatedSprite2D.play("Normal Up")
+	if !is_hurt:
+		if velocity.x < 60 and velocity.x > -60:
+			if velocity.y < 0:
+				$AnimatedSprite2D.play("Normal Up")
+			else:
+				if health == 1:
+					$AnimatedSprite2D.play("Almost Dead Down")
+				else:
+					$AnimatedSprite2D.play("Normal Down")
+		elif velocity.x > 0:
+			if health == 1:
+				$AnimatedSprite2D.play("Almost Dead Right")
+			else:
+				$AnimatedSprite2D.play("Normal Right")
 		else:
 			if health == 1:
-				$AnimatedSprite2D.play("Almost Dead Down")
+				$AnimatedSprite2D.play("Almost Dead Left")
 			else:
-				$AnimatedSprite2D.play("Normal Down")
-	elif velocity.x > 0:
-		if health == 1:
-			$AnimatedSprite2D.play("Almost Dead Right")
-		else:
-			$AnimatedSprite2D.play("Normal Right")
-	else:
-		if health == 1:
-			$AnimatedSprite2D.play("Almost Dead Left")
-		else:
-			$AnimatedSprite2D.play("Normal Left")
+				$AnimatedSprite2D.play("Normal Left")
 
 func dodge(delta):
 	if velocity.x > 0:
@@ -197,6 +201,7 @@ func _on_area_2d_body_entered(body):
 		else:
 			$AnimatedSprite2D.play("Hurt Left")
 		hit.emit()
+		is_hurt = true
 		charging = false
 		i_frames += 75
 	if health <= 0:
