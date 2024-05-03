@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://by7gkp88vxdwn"]
+[gd_scene load_steps=12 format=3 uid="uid://by7gkp88vxdwn"]
 
 [ext_resource type="Script" path="res://scripts/hand_left.gd" id="1_hlorr"]
 [ext_resource type="Texture2D" uid="uid://bxd6s3oa60pvn" path="res://art/Hand_R.png" id="1_yucs8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://r7106xynwt2g" path="res://art/Hand enemies/Hands 2.png" id="5_kpiib"]
 [ext_resource type="Texture2D" uid="uid://uuvhofrmxqpe" path="res://art/Hand enemies/Hands 3.png" id="6_mhnch"]
 [ext_resource type="Texture2D" uid="uid://cvsr3gu5kfbls" path="res://art/Hand enemies/Hands 4.png" id="7_eoe0i"]
+[ext_resource type="AudioStream" uid="uid://wisi82cfmpg7" path="res://snd/zapsplat_multimedia_game_sound_retro_arcade_blip_lo_fi_kill_die_001_93082.mp3" id="9_l6we3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mchkt"]
 animations = [{
@@ -88,6 +89,9 @@ shape = SubResource("CapsuleShape2D_aal1y")
 [node name="GrabTimer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_l6we3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="GrabTimer" to="." method="_on_grab_timer_timeout"]

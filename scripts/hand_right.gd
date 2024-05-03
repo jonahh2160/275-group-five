@@ -28,4 +28,6 @@ func punch(dir):
 func _on_body_entered(body):
 	if punching and !has_punched:
 		body.queue_free()
+		$AudioStreamPlayer2D.pitch_scale = randf_range(0.75, 2)
+		$AudioStreamPlayer2D.play()
 		has_punched = true

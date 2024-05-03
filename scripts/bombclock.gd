@@ -21,6 +21,8 @@ func _process(_delta):
 			$AnimatedSprite2D.play("Alert Walk")
 			$AnimatedSprite2D.flip_h = false
 			blowing_up = true
+			$AudioStreamPlayer2D3.pitch_scale = randf_range(1, 2)
+			$AudioStreamPlayer2D3.play()
 			$Timer.start()
 		else:
 			normal_move()
@@ -46,21 +48,27 @@ func blow_up():
 func _on_timer_timeout():
 	if (count_down == 5):
 		$AnimatedSprite2D.play("5 Walk")
+		$AudioStreamPlayer2D.play()
 		count_down -= 1
 	elif (count_down == 4):
 		$AnimatedSprite2D.play("4 Walk")
+		$AudioStreamPlayer2D.play()
 		count_down -= 1
 	elif (count_down == 3):
 		$AnimatedSprite2D.play("3 Walk")
+		$AudioStreamPlayer2D.play()
 		count_down -= 1
 	elif (count_down == 2):
 		$AnimatedSprite2D.play("2 Walk")
+		$AudioStreamPlayer2D.play()
 		count_down -= 1
 	elif (count_down == 1):
 		$AnimatedSprite2D.play("1 Walk")
+		$AudioStreamPlayer2D.play()
 		count_down -= 1
 		$Timer.one_shot = true
 	else:
 		$AnimatedSprite2D.play("Shock Walk")
+		$AudioStreamPlayer2D2.play()
 		await get_tree().create_timer(0.5).timeout
 		blow_up()

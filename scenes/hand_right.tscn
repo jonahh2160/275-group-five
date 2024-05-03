@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc676qf1bhtbl"]
+[gd_scene load_steps=7 format=3 uid="uid://bc676qf1bhtbl"]
 
 [ext_resource type="Texture2D" uid="uid://toq5invx6c0e" path="res://art/Hand_L.png" id="1_20v2a"]
 [ext_resource type="Script" path="res://scripts/hand_right.gd" id="1_dqv0c"]
 [ext_resource type="Texture2D" uid="uid://dhsfxq2x7uehp" path="res://art/punch.png" id="3_yq2ap"]
+[ext_resource type="AudioStream" uid="uid://4g8dm18kbg0e" path="res://snd/zapsplat_multimedia_game_sound_retro_impact_hit_or_punch_001_38394.mp3" id="4_ckh48"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t7q57"]
 animations = [{
@@ -43,6 +44,9 @@ shape = SubResource("CapsuleShape2D_aal1y")
 [node name="PunchTimer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ckh48")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="PunchTimer" to="." method="_on_grab_timer_timeout"]

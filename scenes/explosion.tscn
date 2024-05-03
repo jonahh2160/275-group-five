@@ -153,6 +153,7 @@ frame_progress = 0.833046
 
 [node name="BoomPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("32_1ww6p")
+volume_db = 3.0
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="finished" from="BoomPlayer" to="." method="_on_boom_player_finished"]

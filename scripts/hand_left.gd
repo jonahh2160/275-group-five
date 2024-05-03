@@ -60,6 +60,8 @@ func _on_body_entered(body):
 					"green_gumby":
 						$AnimatedSprite2D.play("gumby_green")
 		body.queue_free()
+		$AudioStreamPlayer2D.pitch_scale = randf_range(0.75, 2)
+		$AudioStreamPlayer2D.play()
 		enemy_grabbed.emit()
 		has_grabbed = true
 

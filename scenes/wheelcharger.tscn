@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://oq4m5br2ohoh"]
+[gd_scene load_steps=8 format=3 uid="uid://oq4m5br2ohoh"]
 
 [ext_resource type="Script" path="res://scripts/wheelcharger.gd" id="1_ufhco"]
 [ext_resource type="Texture2D" uid="uid://xj6i46vjq1pv" path="res://art/mouse/Mouse 5.png" id="2_vx74p"]
 [ext_resource type="Texture2D" uid="uid://db4oparsfe340" path="res://art/mouse/Mouse 7.png" id="3_8r7ev"]
+[ext_resource type="AudioStream" uid="uid://bdbir7a4462in" path="res://snd/kenney_sci-fi-sounds/Audio/laserLarge_004.ogg" id="4_bag0t"]
+[ext_resource type="AudioStream" uid="uid://cv0bu0y6go71g" path="res://snd/kenney_digital-audio/Audio/pepSound3.ogg" id="5_ctfj2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chmga"]
 animations = [{
@@ -41,5 +43,12 @@ debug_color = Color(0.415686, 0.176471, 0.0117647, 0.670588)
 [node name="ChargeTimer" type="Timer" parent="."]
 wait_time = 5.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bag0t")
+volume_db = 3.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ctfj2")
 
 [connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
