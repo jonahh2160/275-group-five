@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.0954084, 0.614221, 1)
+color = Color(0, 0.0941176, 0.615686, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -81,6 +81,19 @@ theme_override_fonts/font = ExtResource("3_qbop3")
 theme_override_font_sizes/font_size = 40
 text = "Credits"
 
+[node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qbop3")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
@@ -97,4 +110,5 @@ text = "Exit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer2/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer4/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer3/Quit" to="." method="_on_quit_pressed"]
