@@ -187,6 +187,15 @@ func _on_area_2d_body_entered(body):
 	if i_frames <= 0:
 		health -= 1
 		set_modulate(Color("red"))
+		if velocity.x < 60 and velocity.x > -60:
+			if velocity.y < 0:
+				$AnimatedSprite2D.play("Normal Up")
+			else:
+				$AnimatedSprite2D.play("Hurt Down")
+		elif velocity.x > 0:
+			$AnimatedSprite2D.play("Hurt Right")
+		else:
+			$AnimatedSprite2D.play("Hurt Left")
 		hit.emit()
 		charging = false
 		i_frames += 75
