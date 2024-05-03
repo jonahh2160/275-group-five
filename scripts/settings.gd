@@ -3,7 +3,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (GlobalFunctions.secret_sound):
-		$Secret.button_pressed = true
+		$Secret.set_pressed_no_signal()
 	$Button.grab_focus()
 
 func _on_button_pressed():
