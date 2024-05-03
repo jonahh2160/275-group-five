@@ -10,6 +10,7 @@ var grabbing = false
 var has_grabbed = false
 var grab_dir = Vector2.ZERO
 var swiping = false
+var time = 0.0
 
 func grab(dir):
 	grab_dir = dir
@@ -22,6 +23,8 @@ func ungrab():
 		current_held = 0
 		enemy_discarded.emit()
 		$AnimatedSprite2D.play("default")
+	else:
+		position = Vector2(65, 27)
 
 func _process(delta):
 	if $GrabTimer.get_time_left() > 0 && current_held == 0 && !has_grabbed:
@@ -73,8 +76,11 @@ func _on_body_entered(body):
 
 func rumbee_swipe(delta):
 	if not $SwipeTimer.is_stopped():
-		# Do swipe
-		pass
+		# Thanks to golddotaskquestions on Reddit
+		time += delta
+		var angle = 7 * time
+		var rotation = Vector2(cos(angle), sin(angle))
+		position = rotation * 200
 	else:
 		swiping = true
 		
@@ -86,14 +92,18 @@ func rumbee_swipe(delta):
 			grab_dir = Vector2(1,0)
 			
 		# Move to start position
-		position = grab_dir * 120
+		position = grab_dir * 200
 		rotation = grab_dir.angle()	
 		
+		scale = Vector2(1.5,1.5)
 		$SwipeTimer.start()
 	
 
 
 
 func _on_swipe_timer_timeout():
+	scale = Vector2(0.8,0.8)
+	rotation_degrees = 30
+	time = 0.0
 	ungrab()
 	swiping = false
