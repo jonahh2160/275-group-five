@@ -20,6 +20,7 @@ func grab(dir):
 
 func ungrab():
 	if !grabbing || swiping:
+		has_grabbed = false
 		current_held = 0
 		enemy_discarded.emit()
 		$AnimatedSprite2D.play("default")
@@ -27,11 +28,12 @@ func ungrab():
 		position = Vector2(65, 27)
 
 func _process(delta):
+	print(position)
 	if $GrabTimer.get_time_left() > 0 && current_held == 0 && !has_grabbed:
 		position += grab_dir.normalized() * 800 * delta
 	elif swiping:
 		rumbee_swipe(delta)
-	elif (position.x < 63 || position.x > 67) || (position.y < 25 || position.y > 29):
+	elif (position.x < 60 || position.x > 70) || (position.y < 25 || position.y > 29):
 		position += (Vector2(65, 27) - position).normalized() * 800 * delta
 	else:
 		if grabbing :
@@ -80,7 +82,7 @@ func rumbee_swipe(delta):
 		time += delta
 		var angle = 7 * time
 		var rotation = Vector2(cos(angle), sin(angle))
-		position = rotation * 200
+		position = rotation * 250
 	else:
 		swiping = true
 		
@@ -92,7 +94,7 @@ func rumbee_swipe(delta):
 			grab_dir = Vector2(1,0)
 			
 		# Move to start position
-		position = grab_dir * 200
+		position = grab_dir * 250
 		rotation = grab_dir.angle()	
 		
 		scale = Vector2(1.5,1.5)
